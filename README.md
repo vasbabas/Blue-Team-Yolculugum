@@ -28,14 +28,14 @@ Bu yolculukta bana katılın! Her türlü geri bildirim, öneri ve tartışmaya 
 
 Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 
-- [ 🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#️-4-ağustos-2025-laboratuvar-kurulumu-ve-ilk-domain-macerası)
+- [4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#️-4-ağustos-2025-laboratuvar-kurulumu-ve-ilk-domain-macerası)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
 
 ## 🚀 Günlükler Başlıyor!
 
-### 🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası
+### 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası
 
 **Bugünkü Konu:** Blue Team laboratuvar ortamının hazırlanması. 🧪
 
