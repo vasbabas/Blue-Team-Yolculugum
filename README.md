@@ -83,7 +83,7 @@ Ping testinde Windows 10'dan sunucuya ping gidebiliyorken, sunucudan Windows 10'
 Laboratuvarım artık hazır! Bu temel kurulum, yol haritamdaki pratik uygulamalar için sağlam bir zemin oluşturdu. Artık gönül rahatlığıyla başlayabilirim!
 
 ---
-<a id="gun-2025-08-04"></a>
+<a id="gun-2025-08-05"></a>
 ### 🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler
 
 **Bugünkü Konu:** Active Directory'nin kalbine yolculuk ve ilk pratik uygulamalar. 💙
