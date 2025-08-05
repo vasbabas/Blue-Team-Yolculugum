@@ -6,7 +6,7 @@ Ben Muzaffer, Bilgisayar Programcılığı öğrencisiyim ve siber güvenlik dü
 
 ## Bu Depo (Repository) Nedir? 🗺️
 
-Bu depo, benim siber güvenlik serüvenimin canlı bir günlüğüdür. İnternette yaptığım detaylı araştırmalar sonucunda, "Daarin" tarafından Medium'da hazırlanan kapsamlı **[Blue Team Yol Haritası](https://medium.com/@daarin/roadmap-for-cyber-security-in-the-blue-team-ae9b25721ac2)** ile karşılaştım. Bu yol haritasının detay seviyesi ve mantıksal yapısı, kendimi geliştirmek için izlemek istediğim yolun tam olarak bu olduğuna karar vermemi sağladı. ✅
+Bu depo, benim siber güvenlik serüvenimin canlı bir bir günlüğüdür. İnternette yaptığım detaylı araştırmalar sonucunda, "Daarin" tarafından Medium'da hazırlanan kapsamlı **[Blue Team Yol Haritası](https://medium.com/@daarin/roadmap-for-cyber-security-in-the-blue-team-ae9b25721ac2)** ile karşılaştım. Bu yol haritasının detay seviyesi ve mantıksal yapısı, kendimi geliştirmek için izlemek istediğim yolun tam olarak bu olduğuna karar vermemi sağladı. ✅
 
 Bu GitHub deposunda, o yol haritasını takip ederken öğrendiğim her şeyi, karşılaştığım zorlukları 😱, bulduğum çözümleri 💡 ve kişisel notlarımı günlük olarak belgeleyeceğim. Amacım, hem kendi gelişimimi takip etmek hem de benim gibi bu yola baş koyan diğer insanlara bir kaynak ve rehber oluşturmaktır.
 
@@ -28,16 +28,15 @@ Bu yolculukta bana katılın! Her türlü geri bildirim, öneri ve tartışmaya 
 
 Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 
-- [4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#laboratuvar-kurulumu-ve-ilk-domain-macerası)
-- [5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#active-directorynin-kalbine-iniyoruz-ou-kullanıcılar-ve-izinler)
+- [🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#️-4-ağustos-2025-laboratuvar-kurulumu-ve-ilk-domain-macerası)
+- [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#️-5-ağustos-2025-active-directorynin-kalbine-iniyoruz-ou-kullanıcılar-ve-izinler)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
 
 ## 🚀 Günlükler Başlıyor!
 
-## 4 Ağustos 2025:
-### Laboratuvar Kurulumu ve İlk Domain Macerası
+### 🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası
 
 **Bugünkü Konu:** Blue Team laboratuvar ortamının hazırlanması. 🧪
 
@@ -51,27 +50,27 @@ Bugün, teorik bilgileri pratiğe dökebileceğim sanal laboratuvar ortamımı h
     Her şeyden önce, izole ve güvenli bir çalışma alanı oluşturmak için Oracle VirtualBox'ı kurdum. Sanallaştırma, tek bir fiziksel makine üzerinde birden çok işletim sistemini aynı anda çalıştırmamızı sağlar. Bu, farklı sistemlerin birbiriyle nasıl etkileşime girdiğini görmek ve hata yapmaktan korkmadan denemeler yapmak için mükemmel bir yöntem.
 
 2.  **Sanal Makinelerin Kurulumu** 🖥️
-    - **Windows Server 2016:** Laboratuvarımın merkezi olacak olan sunucu. Domain Controller (Etki Alanı Yöneticisi), DNS ve diğer temel servisleri bu sunucu üzerinde yapılandıracağım.
-    - **Windows 10:** Sunucu tarafından yönetilecek olan standart bir istemci (client) makinesi. Yaptığım politika değişikliklerinin ve güvenlik ayarlarının etkilerini bu makine üzerinden gözlemleyeceğim.
+    -   **Windows Server 2016:** Laboratuvarımın merkezi olacak olan sunucu. Domain Controller (Etki Alanı Yöneticisi), DNS ve diğer temel servisleri bu sunucu üzerinde yapılandıracağım.
+    -   **Windows 10:** Sunucu tarafından yönetilecek olan standart bir istemci (client) makinesi. Yaptığım politika değişikliklerinin ve güvenlik ayarlarının etkilerini bu makine üzerinden gözlemleyeceğim.
 
 3.  **Ağ Yapılandırması: En Kritik Adım!** 🌐
     Sanal makinelerin birbiriyle konuşabilmesi için doğru ağ yapılandırması şarttır. Her iki sanal makine için de ikişer ağ bağdaştırıcısı tanımladım:
-    - **Bağdaştırıcı 1: NAT (Network Address Translation):** Bu bağdaştırıcı, sanal makinelerin ana makinem üzerinden internete çıkabilmesini sağlar. Bu sayede gerekli güncellemeleri ve indirmeleri yapabilirim. 🌍
-    - **Bağdaştırıcı 2: Dahili Ağ (Internal Network):** Bu bağdaştırıcı, iki sanal makinenin dış dünyadan izole, kendi özel ağlarında haberleşmesi için kullanıldı. İkisine de aynı "intnet" ismini verdim. Bu, gerçek bir şirket içi ağı simüle etmemi sağlıyor. 🔒
+    -   **Bağdaştırıcı 1: NAT (Network Address Translation):** Bu bağdaştırıcı, sanal makinelerin ana makinem üzerinden internete çıkabilmesini sağlar. Bu sayede gerekli güncellemeleri ve indirmeleri yapabilirim. 🌍
+    -   **Bağdaştırıcı 2: Dahili Ağ (Internal Network):** Bu bağdaştırıcı, iki sanal makinenin dış dünyadan izole, kendi özel ağlarında haberleşmesi için kullanıldı. İkisine de aynı "intnet" ismini verdim. Bu, gerçek bir şirket içi ağı simüle etmemi sağlıyor. 🔒
 
 4.  **Statik IP Adreslemesi ve DNS** ✍️
-    - **Windows Server 2016 IP Ayarları:**
-        - IP Adresi: `192.168.100.10`
-        - Alt Ağ Maskesi: `255.255.255.0`
-        - DNS Sunucusu: `192.168.100.10` (Kendisi)
-        - **Öğrenilen Bilgi 💡:** Bir Domain Controller, aynı zamanda DNS sunucusu olarak da hizmet verir. Bu yüzden DNS olarak kendi IP adresini göstermesi gerekir ki ağdaki diğer makineler domain'i ve diğer kaynakları ismiyle bulabilsin.
-    - **Windows 10 IP Ayarları:**
-        - IP Adresi: `192.168.100.20`
-        - Alt Ağ Maskesi: `255.255.255.0`
-        - DNS Sunucusu: `192.168.100.10` (Server'ın IP'si)
-        - **Öğrenilen Bilgi 💡:** İstemci makinenin domain'e katılabilmesi için DNS sunucusu olarak Domain Controller'ın IP adresini bilmesi zorunludur. Aksi takdirde, "contoso.local" gibi bir domain isminin hangi IP adresine karşılık geldiğini çözemez.
+    -   **Windows Server 2016 IP Ayarları:**
+        -   IP Adresi: `192.168.100.10`
+        -   Alt Ağ Maskesi: `255.255.255.0`
+        -   DNS Sunucusu: `192.168.100.10` (Kendisi)
+        -   **Öğrenilen Bilgi 💡:** Bir Domain Controller, aynı zamanda DNS sunucusu olarak da hizmet verir. Bu yüzden DNS olarak kendi IP adresini göstermesi gerekir ki ağdaki diğer makineler domain'i ve diğer kaynakları ismiyle bulabilsin.
+    -   **Windows 10 IP Ayarları:**
+        -   IP Adresi: `192.168.100.20`
+        -   Alt Ağ Maskesi: `255.255.255.0`
+        -   DNS Sunucusu: `192.168.100.10` (Server'ın IP'si)
+        -   **Öğrenilen Bilgi 💡:** İstemci makinenin domain'e katılabilmesi için DNS sunucusu olarak Domain Controller'ın IP adresini bilmesi zorunludur. Aksi takdirde, "contoso.local" gibi bir domain isminin hangi IP adresine karşılık geldiğini çözemez.
 
-#### Karşılaşılan Sorun ve Çözüm: "AD DC Could Not Be Connected" 🤯
+#### Karşılaşılan Sorun ve Çözüm: "AD DC Could Not Be Contacted" 🤯
 Her şey hazır gibiydi. Windows 10 makinesini `CLIENT01` olarak yeniden adlandırdım ve domain'e dahil etmeye çalıştığımda o meşhur hatayı aldım: **"An Active Directory Domain Controller for the domain could not be contacted."**
 
 Ping testinde Windows 10'dan sunucuya ping gidebiliyorken, sunucudan Windows 10'a ping gitmemesi ilk ipucuydu. Kısa bir araştırma ve yapay zekaya danışma sonucunda suçlunun **Windows Güvenlik Duvarı (Firewall)** 🔥 olduğunu anladım.
@@ -85,8 +84,7 @@ Laboratuvarım artık hazır! Bu temel kurulum, yol haritamdaki pratik uygulamal
 
 ---
 
-## 5 Ağustos 2025:
-### Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler
+### 🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler
 
 **Bugünkü Konu:** Active Directory'nin kalbine yolculuk ve ilk pratik uygulamalar. 💙
 
@@ -118,6 +116,7 @@ Pratiğe dalmadan önce bu kavramları sıfırdan öğrenelim:
 1.  **OU Yapısını Oluşturma:** "Active Directory Users and Computers" konsolunu açarak, `muzafferdomain.local` domain'im altında `IT`, `HR` (İnsan Kaynakları) ve `Security` adında üç adet OU oluşturdum.
 2.  **Kullanıcıları ve Grupları Oluşturma:**
     -   Her OU'nun içine, o departmanı temsil eden test kullanıcıları oluşturdum (`jamesdaniel.it`, `katecole.hr` vb.).
+    -   **🔑 Şifre Mücadelesi:** Windows Server'ın varsayılan şifre karmaşıklığı ilkesi (büyük/küçük harf, rakam vb.) yüzünden şifre oluşturmakta zorlandım. Bu aslında iyi bir şey! Güvenliğin işlediğini gösterir. Çözüm olarak güçlü bir şifre oluşturucu kullandım.
     -   `ITDepartmani` adında bir **Global Güvenlik Grubu** oluşturdum ve `jamesdaniel.it` kullanıcısını bu gruba üye yaptım.
 3.  **Dosya Paylaşımının İki Anahtarı: Paylaşım ve NTFS İzinleri:**
     -   Sunucumda "OrtakBelgeler" adında bir klasör açtım ve bu klasöre `ITDepartmani` grubunun erişmesini sağladım.
@@ -135,4 +134,4 @@ Bu komut, Windows'a "Hayır, yerel yöneticiyi değil, `muzafferdomain` krallı�
 #### 🏁 Günün Sonucu ve Kapanış Düşünceleri
 Bugün, Active Directory'nin teorik derinliklerine inip bunu kendi laboratuvarımda hayata geçirdim. Hatalar yapmak ve bu hataların nedenini anlayarak çözmek, öğrenme sürecinin en kalıcı parçası. Bu rehberi günlük tutar gibi yazıyorum çünkü amacım sadece "şunu yapın" demek değil, aynı zamanda bu yolda yürürken başınıza gelebilecek gerçekçi senaryoları ve hisleri de paylaşmak. Umarım hep birlikte gelişiriz.
 
-Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak. Bol çalışmalar! 😊
+Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak. İyi akşamlar! 😊
