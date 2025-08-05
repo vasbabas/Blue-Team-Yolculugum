@@ -28,14 +28,14 @@ Bu yolculukta bana katılın! Her türlü geri bildirim, öneri ve tartışmaya 
 
 Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 
-- [🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#️-4-ağustos-2025-laboratuvar-kurulumu-ve-ilk-domain-macerası)
-- [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#️-5-ağustos-2025-active-directorynin-kalbine-iniyoruz-ou-kullanıcılar-ve-izinler)
+- [🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#gun-2025-08-04)
+- [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#gun-2025-08-05)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
 
 ## 🚀 Günlükler Başlıyor!
-
+<a id="gun-2025-08-04"></a>
 ### 🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası
 
 **Bugünkü Konu:** Blue Team laboratuvar ortamının hazırlanması. 🧪
@@ -80,10 +80,10 @@ Ping testinde Windows 10'dan sunucuya ping gidebiliyorken, sunucudan Windows 10'
 **Profesyonel İpucu ve Gelecek Notu 📝:** Gerçek bir ortamda güvenlik duvarını tamamen kapatmak **asla** yapılmaması gereken bir şeydir. Doğru yöntem, domain'e katılım için gerekli olan spesifik portlara (DNS, RPC, SMB vb.) güvenlik duvarı üzerinden izin vermektir. Bu konuyu ilerleyen günlerde detaylıca araştırıp doğru kural setini oluşturacağım.
 
 #### Günün Sonucu ve Sonraki Adımlar 🏁
-Laboratuvarım artık hazır! Bu temel kurulum, yol haritamdaki pratik uygulamalar için sağlam bir zemin oluşturdu. Artık gönül rahatlığıyla **[Microsoft Learn Windows Server 2019 Koleksiyonu](https://learn.microsoft.com/tr-tr/collections/5x1du7p537reex?WT.mc_id=modinfra-13564-socuff)**'na başlayabilirim!
+Laboratuvarım artık hazır! Bu temel kurulum, yol haritamdaki pratik uygulamalar için sağlam bir zemin oluşturdu. Artık gönül rahatlığıyla başlayabilirim!
 
 ---
-
+<a id="gun-2025-08-04"></a>
 ### 🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler
 
 **Bugünkü Konu:** Active Directory'nin kalbine yolculuk ve ilk pratik uygulamalar. 💙
@@ -135,3 +135,5 @@ Bu komut, Windows'a "Hayır, yerel yöneticiyi değil, `muzafferdomain` krallı�
 Bugün, Active Directory'nin teorik derinliklerine inip bunu kendi laboratuvarımda hayata geçirdim. Hatalar yapmak ve bu hataların nedenini anlayarak çözmek, öğrenme sürecinin en kalıcı parçası. Bu rehberi günlük tutar gibi yazıyorum çünkü amacım sadece "şunu yapın" demek değil, aynı zamanda bu yolda yürürken başınıza gelebilecek gerçekçi senaryoları ve hisleri de paylaşmak. Umarım hep birlikte gelişiriz.
 
 Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak. İyi akşamlar! 😊
+
+---
