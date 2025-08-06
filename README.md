@@ -30,6 +30,7 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 
 - [🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#gun-2025-08-04)
 - [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#gun-2025-08-05)
+- [🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak](#gun-2025-08-06)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
@@ -137,3 +138,52 @@ Bugün, Active Directory'nin teorik derinliklerine inip bunu kendi laboratuvarı
 Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak. İyi akşamlar! 😊
 
 ---
+<a id="gun-2025-08-06"></a>
+
+🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak
+Bugünkü Konu: Grup İlke Nesneleri (Group Policy Objects - GPO) ile merkezi yönetim. ⚖️
+
+Günün Özeti
+Bugün benim için hem yorucu hem de öğretici bir gündü. Beklenmedik bir aksilik yüzünden tüm laboratuvar ortamımı sıfırdan kurmak zorunda kalmak, planlarımı yavaşlatsa da pes etmedim ve günün hedefine, yani Active Directory'nin en güçlü silahlarından biri olan GPO'lara odaklandım. Zorluklara rağmen, bir domain'deki binlerce kullanıcı ve bilgisayar için kuralları tek bir yerden nasıl koyabileceğimizi görmek inanılmaz bir tatmin duygusu yaşattı.
+
+😱 Zorlu Başlangıç: Laboratuvarı Yeniden İnşa Etmek
+Güne başlarken karşılaştığım bilgisayar değişikliği, tüm sanal makinelerimi, OU yapımı, kullanıcılarımı ve paylaşımlarımı en baştan kurmam gerektiği anlamına geliyordu. Bu gerçekten moral bozucu ve zaman alıcı bir süreçti. Ancak bu zorunlu tekrarın, önceki günlerde öğrendiğim temel bilgileri ne kadar pekiştirdiğini de fark ettim. Bazen en iyi öğrenme, beklenmedik tekrarlarla gelir. 💪
+
+🧠 Teorik Köşe: GPO (Group Policy Object) Nedir?
+GPO, bir domain yöneticisinin sahip olduğu en güçlü araçtır. Onu, krallığımızın (muzafferdomain.local) Anayasa ve Kanun Kitabı 📜 olarak düşünebiliriz. GPO'lar sayesinde, binlerce bilgisayar ve kullanıcı için ayarları tek tek yapmak yerine, merkezi kurallar belirleyip bunları otomatik olarak uygulayabiliriz.
+
+Nasıl Çalışır?: Bir GPO oluşturur ve onu bir OU'ya (Organizasyonel Birim) bağlarsınız. O andan itibaren, o GPO içindeki tüm kurallar, o OU içindeki tüm kullanıcılara ve/veya bilgisayarlara uygulanır.
+
+İşlem Sırası (LSDOU): GPO'lar belirli bir hiyerarşide işlenir: Local (Yerel Bilgisayar) -> Site (Fiziksel Lokasyon) -> Domain (Tüm Etki Alanı) -> OU (Organizasyonel Birim). Bu, en son uygulanan (genellikle OU'ya bağlanan) polisin en geçerli olduğu anlamına gelir. Bu yüzden OU'lar bu kadar önemlidir!
+
+Kullanıcı ve Bilgisayar Yapılandırması: Her GPO'nun içinde iki ana bölüm vardır:
+
+Computer Configuration: Bilgisayar açıldığında uygulanan ayarlardır. Kimin oturum açtığından bağımsızdır. (Örn: Windows Güvenlik Duvarı ayarları)
+
+User Configuration: Bir kullanıcı oturum açtığında uygulanan ayarlardır. Hangi bilgisayarda oturum açtığından bağımsızdır. (Örn: Masaüstü arkaplanını değiştirmek)
+
+💻 Pratik Zamanı: IT Departmanına Özel Kurallar
+Teoriyi öğrendikten sonra, IT OU'suna özel bir GPO oluşturarak aşağıdaki kuralları uyguladım:
+
+1. Özel Parola Politikası Oluşturma
+IT departmanının daha güvenli parolalar kullanmasını sağlamak için, domain genelindeki politikadan daha sıkı bir politika belirledim. Bu politika, şifrelerin en az 12 karakter olmasını, karmaşıklık kurallarına uymasını ve son 5 şifrenin tekrar kullanılamamasını zorunlu kıldı.
+
+<img width="1906" height="1024" alt="password" src="https://github.com/user-attachments/assets/60dc68f3-be0a-4370-bdfb-73f14e9b7e4c" />
+
+
+2. CMD ve PowerShell'e Erişimi Engellemek
+Güvenlik nedeniyle, standart IT kullanıcılarının Komut İstemi'ne (CMD) ve PowerShell'e erişimini engellemek istedim. "User Configuration" altında, kullanıcıların belirli uygulamaları çalıştırmasını engelleyen politikayı bularak cmd.exe ve powershell.exe'yi listeye ekledim.
+
+<img width="1903" height="1025" alt="Prevent access to the command prompt" src="https://github.com/user-attachments/assets/23dc5b90-9fe9-420e-b51e-8a6c2f43b914" />
+
+
+3. İnteraktif Giriş Mesajı Eklemek
+Kullanıcılar oturum açmadan önce onlara bir uyarı veya bilgilendirme metni göstermek, güvenlik farkındalığı için harika bir yöntemdir. IT OU'sundaki kullanıcılar için, oturum açma ekranında "Bu sistem sadece yetkili IT personeli içindir. Tüm aktiviteler kayıt altına alınmaktadır." gibi bir başlık ve mesaj belirledim.
+
+<img width="1910" height="1006" alt="Do not display last user name" src="https://github.com/user-attachments/assets/189d2b05-93cb-4eb8-a6d3-0252afe13175" />
+
+
+🏁 Günün Sonucu ve Kapanış Düşünceleri
+Bugün, başlangıçtaki tüm aksiliklere rağmen GPO'nun temel mantığını ve gücünü kavramakla geçti. Birkaç tıklama ile tüm bir departmanın çalışma ortamını nasıl şekillendirebildiğini görmek müthiş bir deneyimdi. Çok yorucu bir gün oldu ama değdi.
+
+Umarım yarın Windows Server ile ilgili son konuları da tamamlayıp bu ilk büyük adımı bitirebilirim. Bu yolculukta bana eşlik eden herkese bol çalışmalar dilerim! 😊
