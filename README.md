@@ -140,7 +140,7 @@ Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha
 ---
 <a id="gun-2025-08-06"></a>
 
-###🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak
+### 🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak
 Bugünkü Konu: Grup İlke Nesneleri (Group Policy Objects - GPO) ile merkezi yönetim. ⚖️
 
 Günün Özeti
