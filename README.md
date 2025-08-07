@@ -52,7 +52,7 @@ Bugün, teorik bilgileri pratiğe dökebileceğim sanal laboratuvar ortamımı h
     Her şeyden önce, izole ve güvenli bir çalışma alanı oluşturmak için Oracle VirtualBox'ı kurdum. Sanallaştırma, tek bir fiziksel makine üzerinde birden çok işletim sistemini aynı anda çalıştırmamızı sağlar. Bu, farklı sistemlerin birbiriyle nasıl etkileşime girdiğini görmek ve hata yapmaktan korkmadan denemeler yapmak için mükemmel bir yöntem.
 
 2.  **Sanal Makinelerin Kurulumu** 🖥️
-    -   **Windows Server 2016:** Laboratuvarımın merkezi olacak olan sunucu. Domain Controller (Etki Alanı Yöneticisi), DNS ve diğer temel servisleri bu sunucu üzerinde yapılandıracağım.
+    -   **Windows Server 2019:** Laboratuvarımın merkezi olacak olan sunucu. Domain Controller (Etki Alanı Yöneticisi), DNS ve diğer temel servisleri bu sunucu üzerinde yapılandıracağım.
     -   **Windows 10:** Sunucu tarafından yönetilecek olan standart bir istemci (client) makinesi. Yaptığım politika değişikliklerinin ve güvenlik ayarlarının etkilerini bu makine üzerinden gözlemleyeceğim.
 
 3.  **Ağ Yapılandırması: En Kritik Adım!** 🌐
@@ -144,16 +144,16 @@ Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha
 ### 🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak
 Bugünkü Konu: Grup İlke Nesneleri (Group Policy Objects - GPO) ile merkezi yönetim. ⚖️
 
-Günün Özeti
+#### Günün Özeti
 Bugün benim için hem yorucu hem de öğretici bir gündü. Beklenmedik bir aksilik yüzünden tüm laboratuvar ortamımı sıfırdan kurmak zorunda kalmak, planlarımı yavaşlatsa da pes etmedim ve günün hedefine, yani Active Directory'nin en güçlü silahlarından biri olan GPO'lara odaklandım. Zorluklara rağmen, bir domain'deki binlerce kullanıcı ve bilgisayar için kuralları tek bir yerden nasıl koyabileceğimizi görmek inanılmaz bir tatmin duygusu yaşattı.
 
-😱 Zorlu Başlangıç: Laboratuvarı Yeniden İnşa Etmek
+#### 😱 Zorlu Başlangıç: Laboratuvarı Yeniden İnşa Etmek
 Güne başlarken karşılaştığım bilgisayar değişikliği, tüm sanal makinelerimi, OU yapımı, kullanıcılarımı ve paylaşımlarımı en baştan kurmam gerektiği anlamına geliyordu. Bu gerçekten moral bozucu ve zaman alıcı bir süreçti. Ancak bu zorunlu tekrarın, önceki günlerde öğrendiğim temel bilgileri ne kadar pekiştirdiğini de fark ettim. Bazen en iyi öğrenme, beklenmedik tekrarlarla gelir. 💪
 
-🧠 Teorik Köşe: GPO (Group Policy Object) Nedir?
+#### 🧠 Teorik Köşe: GPO (Group Policy Object) Nedir?
 GPO, bir domain yöneticisinin sahip olduğu en güçlü araçtır. Onu, krallığımızın (muzafferdomain.local) Anayasa ve Kanun Kitabı 📜 olarak düşünebiliriz. GPO'lar sayesinde, binlerce bilgisayar ve kullanıcı için ayarları tek tek yapmak yerine, merkezi kurallar belirleyip bunları otomatik olarak uygulayabiliriz.
 
-Nasıl Çalışır?: Bir GPO oluşturur ve onu bir OU'ya (Organizasyonel Birim) bağlarsınız. O andan itibaren, o GPO içindeki tüm kurallar, o OU içindeki tüm kullanıcılara ve/veya bilgisayarlara uygulanır.
+#### Nasıl Çalışır?: Bir GPO oluşturur ve onu bir OU'ya (Organizasyonel Birim) bağlarsınız. O andan itibaren, o GPO içindeki tüm kurallar, o OU içindeki tüm kullanıcılara ve/veya bilgisayarlara uygulanır.
 
 İşlem Sırası (LSDOU): GPO'lar belirli bir hiyerarşide işlenir: Local (Yerel Bilgisayar) -> Site (Fiziksel Lokasyon) -> Domain (Tüm Etki Alanı) -> OU (Organizasyonel Birim). Bu, en son uygulanan (genellikle OU'ya bağlanan) polisin en geçerli olduğu anlamına gelir. Bu yüzden OU'lar bu kadar önemlidir!
 
@@ -163,7 +163,7 @@ Computer Configuration: Bilgisayar açıldığında uygulanan ayarlardır. Kimin
 
 User Configuration: Bir kullanıcı oturum açtığında uygulanan ayarlardır. Hangi bilgisayarda oturum açtığından bağımsızdır. (Örn: Masaüstü arkaplanını değiştirmek)
 
-💻 Pratik Zamanı: IT Departmanına Özel Kurallar
+#### 💻 Pratik Zamanı: IT Departmanına Özel Kurallar
 Teoriyi öğrendikten sonra, IT OU'suna özel bir GPO oluşturarak aşağıdaki kuralları uyguladım:
 
 1. Özel Parola Politikası Oluşturma
@@ -192,13 +192,13 @@ Umarım yarın Windows Server ile ilgili son konuları da tamamlayıp bu ilk bü
 ---
 <a id="gun-2025-08-07"></a>
 
-🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi
+### 🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi
 Bugünkü Konu: Windows Server yönetiminin temel taşları ve yol haritasının ilk büyük bölümünün tamamlanışı! 🎉
 
-Günün Özeti
+#### Günün Özeti
 Bugün, Windows Server serüvenimde son ve en kritik konulara dalarak uzun ama inanılmaz keyifli bir çalışma seansı gerçekleştirdim. Ağın görünmez kahramanları olan DNS ve DHCP'den başlayıp, veri depolamanın kalbi olan Dosya Sunucusu'na, oradan da sistemin sağlığını izlemeye kadar geniş bir yelpazeyi ele aldım. Her bir konu, bir sistem yöneticisinin ve bir Blue Teamer'ın bilmesi gereken temel yetenekleri içeriyordu. Günün sonunda, yol haritamdaki ilk büyük bölümü tamamlamanın gururunu yaşıyorum!
 
-🌐 1. DNS ve DHCP: Ağın Posta Adresi ve Otomatik Kapı Numarası
+#### 🌐 1. DNS ve DHCP: Ağın Posta Adresi ve Otomatik Kapı Numarası
 🧠 Teorik Köşe
 DNS (Domain Name System) Nedir?: İnternetin ve yerel ağların "telefon rehberidir" 📖. www.google.com gibi insanların anladığı isimleri, 172.217.16.196 gibi bilgisayarların anladığı IP adreslerine çevirir. Onsuz, her site için IP adresi ezberlemek zorunda kalırdık!
 
@@ -210,7 +210,7 @@ DHCP (Dynamic Host Configuration Protocol) Nedir?: Ağa yeni katılan cihazlara 
 
 İlişkileri: DHCP, bir cihaza IP verdiğinde, bu bilgiyi otomatik olarak DNS'e kaydettirebilir (Dynamic DNS). Böylece CLIENT01 bilgisayarı 192.168.100.125 IP'sini aldığında, bu bilgi DNS'e anında işlenir.
 
-💻 Pratik Zamanı
+#### 💻 Pratik Zamanı
 Önce Server Manager üzerinden DNS ve DHCP rollerini kurdum.
 
 DNS Yapılandırması:
@@ -233,8 +233,8 @@ CLIENT01 makinesine geçip yönetici CMD'sinde ipconfig /release ve ipconfig /re
 
 Tavsiye: VirtualBox'ın kendi DHCP ve ağ yapıları bazen kafa karıştırabiliyor. Bu tür testlerde VirtualBox'ın ağ ayarlarını (NAT, Internal Network vb.) doğru yapılandırdığınızdan emin olun.
 
-📁 2. Dosya Sunucusu ve Depolama Yönetimi: Verinin Kalesi
-🧠 Teorik Köşe
+#### 📁 2. Dosya Sunucusu ve Depolama Yönetimi: Verinin Kalesi
+#### 🧠 Teorik Köşe
 File Server Rolü: Kullanıcıların dosyalarını merkezi bir sunucuda depolamasını, paylaşmasını ve yönetmesini sağlar. Bu, veri güvenliği, yedekleme ve yetkilendirme için kritiktir.
 
 Auditing (Denetim) ve Effective Access (Etkin Erişim): Blue Team için hayati iki kavram!
@@ -243,7 +243,7 @@ Auditing: Kimin, hangi dosyaya, ne zaman eriştiğini, ne yaptığını (okudu, 
 
 Effective Access: Bir kullanıcının bir dosya veya klasör üzerinde sahip olduğu nihai izni gösterir. Bazen bir kullanıcı birden çok gruba üye olur ve izinleri karmaşıklaşır. Bu araç, "Ahmet bu dosyayı neden silemiyor?" sorusunun net cevabını verir.
 
-💻 Pratik Zamanı
+#### 💻 Pratik Zamanı
 File Server rolünü kurdum.
 
 SMB Share - Quick sihirbazı ile C sürücüsünde OrtakAlan adında yeni bir paylaşılan klasör oluşturdum.
@@ -254,7 +254,7 @@ Blue Team Adımı: Paylaşılan klasörün denetim (Auditing) ayarlarını açt�
 
 CLIENT01 üzerinden \\192.168.100.10\OrtakAlan UNC yolu ile klasöre başarıyla eriştim.
 
-💾 3. Yedekleme, 📊 Performans ve 🌐 Uzak Erişim
+#### 💾 3. Yedekleme, 📊 Performans ve 🌐 Uzak Erişim
 Özet
 Günün sonuna doğru bu konuları ele aldım. Eski bir bilgisayarla çalışıyorsanız yedekleme ve sanallaştırma işlemleri bir işkenceye dönüşebiliyor, bu yüzden bazı adımları sadece teorik ve pratik adımlarını izleyerek geçtim.
 
