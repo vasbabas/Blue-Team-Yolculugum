@@ -280,3 +280,5 @@ Remote Access ve Hyper-V: Performans sorunları nedeniyle bu konuları (RDP, VPN
 Bugün, yol haritamızdaki "Operating System Mastery" bölümünün Windows Server kısmını ve hatta AD/GPO temellerini tamamen bitirmiş oldum! Çok sayıda konuyu bir güne sığdırmak yorucuydu ama her bir parçanın birbiriyle nasıl konuştuğunu görmek paha biçilmezdi. Artık sağlam bir Windows altyapısına sahibim.
 
 Sıradaki büyük macera, Linux yönetimi! İleriki çalışmalarda görüşmek üzere! 🚀
+
+---
