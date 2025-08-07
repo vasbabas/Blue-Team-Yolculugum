@@ -31,6 +31,7 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası](#gun-2025-08-04)
 - [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#gun-2025-08-05)
 - [🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak](#gun-2025-08-06)
+- [🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi](#gun-2025-08-07)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
@@ -189,3 +190,93 @@ Bugün, başlangıçtaki tüm aksiliklere rağmen GPO'nun temel mantığını ve
 Umarım yarın Windows Server ile ilgili son konuları da tamamlayıp bu ilk büyük adımı bitirebilirim. Bu yolculukta bana eşlik eden herkese bol çalışmalar dilerim! 😊
 
 ---
+<a id="gun-2025-08-07"></a>
+
+🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi
+Bugünkü Konu: Windows Server yönetiminin temel taşları ve yol haritasının ilk büyük bölümünün tamamlanışı! 🎉
+
+Günün Özeti
+Bugün, Windows Server serüvenimde son ve en kritik konulara dalarak uzun ama inanılmaz keyifli bir çalışma seansı gerçekleştirdim. Ağın görünmez kahramanları olan DNS ve DHCP'den başlayıp, veri depolamanın kalbi olan Dosya Sunucusu'na, oradan da sistemin sağlığını izlemeye kadar geniş bir yelpazeyi ele aldım. Her bir konu, bir sistem yöneticisinin ve bir Blue Teamer'ın bilmesi gereken temel yetenekleri içeriyordu. Günün sonunda, yol haritamdaki ilk büyük bölümü tamamlamanın gururunu yaşıyorum!
+
+🌐 1. DNS ve DHCP: Ağın Posta Adresi ve Otomatik Kapı Numarası
+🧠 Teorik Köşe
+DNS (Domain Name System) Nedir?: İnternetin ve yerel ağların "telefon rehberidir" 📖. www.google.com gibi insanların anladığı isimleri, 172.217.16.196 gibi bilgisayarların anladığı IP adreslerine çevirir. Onsuz, her site için IP adresi ezberlemek zorunda kalırdık!
+
+Temel Kayıt Türleri: A (İsmi IPv4'e çevirir), AAAA (İsmi IPv6'ya çevirir), CNAME (Bir isme başka bir isim takma - alias), MX (Mail sunucusunu belirtir), PTR (IP'yi isme çevirir - Reverse DNS).
+
+Zone Türleri: Forward Lookup Zone (isimden IP'ye) ve Reverse Lookup Zone (IP'den isme) en temel iki bölgedir.
+
+DHCP (Dynamic Host Configuration Protocol) Nedir?: Ağa yeni katılan cihazlara otomatik olarak IP adresi, alt ağ maskesi, ağ geçidi ve DNS sunucusu gibi bilgileri atayan servistir. Ağa her yeni cihaz bağlandığında manuel IP vermenin kabusunu ortadan kaldırır. 🤖
+
+İlişkileri: DHCP, bir cihaza IP verdiğinde, bu bilgiyi otomatik olarak DNS'e kaydettirebilir (Dynamic DNS). Böylece CLIENT01 bilgisayarı 192.168.100.125 IP'sini aldığında, bu bilgi DNS'e anında işlenir.
+
+💻 Pratik Zamanı
+Önce Server Manager üzerinden DNS ve DHCP rollerini kurdum.
+
+DNS Yapılandırması:
+
+muzafferdomain.local için bir Forward Lookup Zone oluşturdum.
+
+192.168.100.x ağı için bir Reverse Lookup Zone oluşturdum. Burada bir ders aldım: İlk denememde "Secondary Zone" olarak oluşturduğum için IP-isim eşleşmesinde sürekli hata aldım. Araştırınca, bu ana sunucuda bölgenin "Primary Zone" olması gerektiğini öğrendim.
+
+nslookup komutu ile test ettiğimde muzafferdomain.local'in çözümlenmediğini gördüm. Sebebi, sunucunun kendi A kaydının otomatik oluşmamasıydı. Manuel olarak SERVER01 -> 192.168.100.10 şeklinde bir A kaydı oluşturunca sorun düzeldi. ✅
+
+DHCP Yapılandırması:
+
+LAN_SCOPE adında yeni bir Scope (kapsam) oluşturdum ve dağıtılacak IP aralığını 192.168.100.100 - 192.168.100.200 olarak belirledim.
+
+Sunucu, router gibi sabit IP'li cihazların bu aralıktan IP almaması için 192.168.100.1 - 10 arasını Exclusion (Hariç Tutma) olarak ekledim.
+
+Scope Options'da DNS sunucusu olarak sunucumun IP'sini (192.168.100.10) girdim.
+
+CLIENT01 makinesine geçip yönetici CMD'sinde ipconfig /release ve ipconfig /renew komutlarını çalıştırdım. ipconfig /all ile kontrol ettiğimde, istemcimin belirlediğim aralıktan (100'lü bir IP) başarılı bir şekilde IP aldığını gördüm!
+
+Tavsiye: VirtualBox'ın kendi DHCP ve ağ yapıları bazen kafa karıştırabiliyor. Bu tür testlerde VirtualBox'ın ağ ayarlarını (NAT, Internal Network vb.) doğru yapılandırdığınızdan emin olun.
+
+📁 2. Dosya Sunucusu ve Depolama Yönetimi: Verinin Kalesi
+🧠 Teorik Köşe
+File Server Rolü: Kullanıcıların dosyalarını merkezi bir sunucuda depolamasını, paylaşmasını ve yönetmesini sağlar. Bu, veri güvenliği, yedekleme ve yetkilendirme için kritiktir.
+
+Auditing (Denetim) ve Effective Access (Etkin Erişim): Blue Team için hayati iki kavram!
+
+Auditing: Kimin, hangi dosyaya, ne zaman eriştiğini, ne yaptığını (okudu, sildi, değiştirdi) kaydeden bir güvenlik günlüğü oluşturur. Bir olay anında "suçluyu" bulmak için bu loglara bakarız.
+
+Effective Access: Bir kullanıcının bir dosya veya klasör üzerinde sahip olduğu nihai izni gösterir. Bazen bir kullanıcı birden çok gruba üye olur ve izinleri karmaşıklaşır. Bu araç, "Ahmet bu dosyayı neden silemiyor?" sorusunun net cevabını verir.
+
+💻 Pratik Zamanı
+File Server rolünü kurdum.
+
+SMB Share - Quick sihirbazı ile C sürücüsünde OrtakAlan adında yeni bir paylaşılan klasör oluşturdum.
+
+İzinlerini ITDepartmani grubunun tam yetkili olacağı şekilde ayarladım.
+
+Blue Team Adımı: Paylaşılan klasörün denetim (Auditing) ayarlarını açtım. Fakat logların yazılması için önce GPO üzerinden "Audit object access" politikasını hem başarılı hem de başarısız denemeler için aktif hale getirdim. Artık bu klasöre yapılan her erişim, Security Event Log'una yazılacak!
+
+CLIENT01 üzerinden \\192.168.100.10\OrtakAlan UNC yolu ile klasöre başarıyla eriştim.
+
+💾 3. Yedekleme, 📊 Performans ve 🌐 Uzak Erişim
+Özet
+Günün sonuna doğru bu konuları ele aldım. Eski bir bilgisayarla çalışıyorsanız yedekleme ve sanallaştırma işlemleri bir işkenceye dönüşebiliyor, bu yüzden bazı adımları sadece teorik ve pratik adımlarını izleyerek geçtim.
+
+Windows Server Backup: Yedekleme sihirbazını çalıştırdım ve adımları takip ettim.
+
+<img width="1914" height="973" alt="backup" src="https://github.com/user-attachments/assets/df3544bd-da1f-4ac8-a367-c7cf806af171" />
+
+
+VSS ve Görev Zamanlayıcı: Veriler kullanılırken bile tutarlı bir yedeğini alan Volume Shadow Copy Service (VSS)'in ne kadar önemli olduğunu ve Task Scheduler ile yedeklemelerin nasıl otomatikleştirileceğini öğrendim.
+
+<img width="1907" height="970" alt="shadow copies" src="https://github.com/user-attachments/assets/16b749a4-0098-4e2b-8113-9df7a856d2db" />
+
+
+Performans İzleme: perfmon aracını açarak CPU, Memory ve Disk kullanımı gibi sayaçları ekleyip sunucunun nabzını canlı olarak izledim. Bu verileri daha sonra analiz etmek için bir Data Collector Set oluşturdum.
+
+<img width="1919" height="1029" alt="performance collector" src="https://github.com/user-attachments/assets/1cecec7e-b7b8-4a71-8e8e-751847bebdd1" />
+
+<img width="1915" height="977" alt="create collector" src="https://github.com/user-attachments/assets/08df4ab1-a46e-4883-9046-23ddfc379096" />
+
+Remote Access ve Hyper-V: Performans sorunları nedeniyle bu konuları (RDP, VPN, Hyper-V Kurulumu, Sanal Makine oluşturma, Nested Virtualization vb.) maalesef sadece teorik ve videolar üzerinden çalışarak tamamladım.
+
+🏁 Günün Sonucu ve Büyük Başarı: Windows Server Bölümü Tamamlandı!
+Bugün, yol haritamızdaki "Operating System Mastery" bölümünün Windows Server kısmını ve hatta AD/GPO temellerini tamamen bitirmiş oldum! Çok sayıda konuyu bir güne sığdırmak yorucuydu ama her bir parçanın birbiriyle nasıl konuştuğunu görmek paha biçilmezdi. Artık sağlam bir Windows altyapısına sahibim.
+
+Sıradaki büyük macera, Linux yönetimi! İleriki çalışmalarda görüşmek üzere! 🚀
