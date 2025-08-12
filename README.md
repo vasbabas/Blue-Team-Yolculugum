@@ -32,8 +32,8 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#gun-2025-08-05)
 - [🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak](#gun-2025-08-06)
 - [🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi](#gun-2025-08-07)
-- [🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor](#gun-2025-08-08)
-- [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-09)
+- [🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor](#gun-2025-08-11)
+- [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-12)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
