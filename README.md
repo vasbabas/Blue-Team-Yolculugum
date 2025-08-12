@@ -32,6 +32,8 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler](#gun-2025-08-05)
 - [🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak](#gun-2025-08-06)
 - [🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi](#gun-2025-08-07)
+- [🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor](#gun-2025-08-08)
+- [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-09)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
@@ -280,5 +282,215 @@ Remote Access ve Hyper-V: Performans sorunları nedeniyle bu konuları (RDP, VPN
 Bugün, yol haritamızdaki "Operating System Mastery" bölümünün Windows Server kısmını ve hatta AD/GPO temellerini tamamen bitirmiş oldum! Çok sayıda konuyu bir güne sığdırmak yorucuydu ama her bir parçanın birbiriyle nasıl konuştuğunu görmek paha biçilmezdi. Artık sağlam bir Windows altyapısına sahibim.
 
 Sıradaki büyük macera, Linux yönetimi! İleriki çalışmalarda görüşmek üzere! 🚀
+
+---
+<a id="gun-2025-08-11"></a>
+### 🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor
+
+**Bugünkü Konu:** Linux administration (Ubuntu, CentOS, RHEL), PowerShell ve Bash scripting basics, System logging and event management. Artık bir sonraki büyük adım olan Network Deep Dive ünitesine geçmeye hazırım! 🚀
+
+#### Günün Özeti
+Bugün, siber güvenlik yolculuğumda Windows dünyasından çıkıp Linux evrenine adım attım. Ardından hem PowerShell hem de Bash script temellerini keşfettim ve sistem loglarının nasıl yönetildiğine dair önemli bilgiler edindim. Tüm bu konular, ileride daha derinlemesine çalışmak için sağlam bir temel oluşturdu. 💪
+
+#### 🐧 Linux Nedir? Temeller ve Dağıtımlar
+Öncelikle Linux'un ne olduğuna baktım. Linux, topluluklar ve şirketler tarafından geliştirilen, açık kaynaklı bir işletim sistemidir. Temelinde "kernel" (çekirdek) bulunur ve bu çekirdek üzerine farklı "dağıtımlar" (distributions) inşa edilir. Kernel, donanım ile yazılım arasındaki köprüdür. Dağıtımlar ise kernel + ek yazılımlar + araçlar + paket yöneticisi gibi bileşenlerden oluşur.
+
+Windows ile Linux'un çekirdek yapısını karşılaştırdım. Linux, modüler ve açık kaynaklı bir çekirdeğe sahipken, Windows daha kapalı ve monolitik bir yapıya sahip. Popüler Linux dağıtımlarına göz attım: Ubuntu, CentOS, RHEL ve tabii ki daha önce kullandığım Arch Linux! Arch bana tanıdık geldiği için bu kısımlar hatırlatıcı oldu. 😊
+
+#### 📁 Linux Dosya Sistemi ve Dizinler
+Linux'ta dosya sistemi mantığını öğrendim. Kök dizin (/) her şeyin başlangıcı. Temel dizinlerin ne işe yaradığını tabloyla özetledim:
+
+| Dizin        |  Açıklama                                      |
+|--------------|------------------------------------------------|
+| /            | Kök dizin, tüm dosya ve klasörlerin başlangıcı |
+| /bin         | Temel komutlar (ls, cp, mv, rm, vb.)           |
+| /sbin        | Sistem yönetim komutları                       |
+| /etc         | Sistem yapılandırma dosyaları                  |
+| /home        | Kullanıcıların kişisel dizinleri               |
+| /var         | Değişken veriler (loglar, spool, vb.)          |
+| /tmp         | Geçici dosyalar                                |
+| /usr         | Kullanıcı programları ve kütüphaneler          |
+| /opt         | Ek yazılımlar                                  |
+| /root        | Root kullanıcısının ana dizini                 |
+
+#### 📦 Paket Yönetimi ve Temel Komutlar
+Paket yönetimine geçtim. Ubuntu'da `apt`, CentOS/RHEL'de `yum` ve `dnf` kullanılıyor. Temel kavramlar:
+- `update`, `upgrade`, `install`, `remove` gibi işlemler
+- `sudo` ile yönetici yetkisi kazanma
+
+#### 👤 Kullanıcı ve Yetki Yönetimi
+Kullanıcı ekleme, parola atama, kullanıcı silme, grup ekleme ve kullanıcıyı gruba dahil etme işlemlerini öğrendim. Dosya/dizin izinlerinde `r` (okuma), `w` (yazma), `x` (çalıştırma) tiplerini ve chmod/chown komutlarını pratik ettim.
+
+#### ⚙️ Servis ve Process Yönetimi
+Process (işlem) ve service (hizmet) kavramlarını öğrendim. `ps`, `top`, `systemctl`, `service` gibi komutlarla uygulamalı denemeler yaptım. Bu tarz komutlar, aktif kullanıldıkça daha kalıcı oluyor; o yüzden ileride Linux'u daha fazla kullanarak pekiştireceğim.
+
+#### 🌐 Ağ Yönetimi
+Ağ birimlerini ve IP yapılandırmasını inceledim. `ip a`, `ifconfig`, `route`, `ping`, `nslookup`, `cat /etc/resolv.conf` gibi komutlarla ağ yapılandırması ve DNS testleri yaptım.
+
+#### 📝 Log Yönetimi
+Logların nerede tutulduğunu ve canlı log takibini öğrendim. Özellikle `/var/log/syslog` ve hata içeren loglara bakmak için kullanılan komutları pratik ettim. Log yönetimi, sistemde neler olup bittiğini anlamak için çok önemli!
+
+#### 💾 Yedekleme
+Linux'ta 3 tip yedekleme yöntemini inceledim (tam, artımlı, diferansiyel). Temel mantıklarını kavradım.
+
+#### ⚡ PowerShell ve Bash Scripting Temelleri
+Script nedir, ne işe yarar sorusuyla başladım. PowerShell ve Bash'te temel script yazımını ve farklarını öğrendim. PowerShell'de komutlar nesne tabanlıdır, çıktılar metin değil nesnedir. Komutlar pipeline (|) ile bağlanır. Değişkenler `$` ile başlar. Dosya uzantısı `.ps1`.
+
+PowerShell temel komutları:
+- `Get-Help <komut>` — Komut hakkında yardım al
+- `Get-Process` — Çalışan işlemleri listeler
+- `Get-Service` — Hizmetleri gösterir
+- `Set-ExecutionPolicy RemoteSigned` — Script çalıştırma izinlerini ayarlar
+- `Write-Output "Merhaba Dünya"` — Ekrana çıktı verir
+
+Bash temel komutları:
+- `echo "Merhaba Dünya"` — Yazdırır
+- `ls` — Dosya listesi
+- `pwd` — Bulunduğun dizin
+- `chmod +x script.sh` — Çalıştırılabilir yapar
+- `./script.sh` — Scripti çalıştırır
+
+Değişkenler ve veri tipleri:
+- PowerShell'de dinamik tipli, tür belirtilmez
+- Bash'te tüm değerler string olarak kabul edilir, tip dönüşümleri manuel yapılır
+
+Koşullar, döngüler ve fonksiyonları temel olarak inceledim. Ancak bu konuların daha kalıcı olması için ileride Python ile birlikte tekrar çalışacağım.
+
+#### 📝 System Logging & Event Management
+Sistem loglarının ne olduğunu, log türlerini ve Windows Event Log sistemini öğrendim. Event Viewer'a göz attım. Linux'ta ise `/var/log/syslog` ve diğer log dosyalarını inceledim.
+
+---
+
+#### 🏁 Günün Sonucu ve Sonraki Adım
+Bugün, Linux yönetimi ve script temelleriyle ilgili önemli bir aşamayı tamamladım. Konuların çoğu daha önce bildiğim için hızlıca ilerledim, odak noktam hatırlatıcı ve rehber niteliğinde çalışmak oldu. Bundan sonraki ünitede "Network Deep Dive" ile ağ dünyasına daha derinlemesine dalacağım! Herkese sağlıklı güzel günler diliyorum esenlikle kalın! 🌟
+
+---
+<a id="gun-2025-08-12"></a>
+### 🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk! 🌐
+
+**Bugünkü Konu:** TCP/IP stack ve OSI modeli, ağ protokolleri (HTTP/HTTPS, DNS, DHCP, SMTP), ağ cihazları (switch, router, firewall), ağ segmentasyonu ve VLAN’lar. Wireshark’ı ise pratik gerektirdiği için yarına bırakıyorum! 🕵️‍♂️
+
+#### Günün Özeti
+Bugün, siber güvenlik yolculuğumda yepyeni bir üniteye, Networking Deep Dive’a başladım. Ağların temellerini, protokolleri, cihazları ve segmentasyon kavramlarını derinlemesine inceledim. Bu konular, Blue Team için olmazsa olmaz teorik bilgiler! Her başlıkta hem temel kavramları hem de pratikte karşılaşabileceğim detayları öğrenmeye odaklandım. Şimdi adım adım ilerleyelim:
+
+---
+
+#### 1️⃣ Temel Ağ Kavramları
+- **Ağ (Network):** İki veya daha fazla cihazın veri iletişimi yapabilmesi için birbirine bağlanmasıdır. Modern dünyada, bilgisayarlar, telefonlar, yazıcılar ve hatta IoT cihazları bile ağlara bağlıdır.
+- **Host:** Ağa bağlı herhangi bir cihaz (PC, sunucu, yazıcı, kamera vb.).
+- **Node:** Ağ üzerinde veri gönderebilen veya alabilen her cihaz. Her host bir node’dur, ama her node host olmayabilir (ör: switch).
+- **Interface:** Cihazın ağa bağlandığı fiziksel ya da sanal bağlantı noktasıdır. Genellikle NIC (Network Interface Card) olarak adlandırılır. Bir cihazda birden fazla interface olabilir (ör: Ethernet, Wi-Fi).
+
+---
+
+#### 2️⃣ OSI Modeli ve TCP/IP Stack
+- **OSI Modeli (7 Katman):** Ağ iletişimini anlamak için geliştirilmiş teorik bir modeldir. Her katman, belirli bir işlevi yerine getirir:
+    1. **Physical (Fiziksel):** Kablolar, elektrik sinyalleri, fiber optik, radyo dalgaları. Donanım seviyesidir.
+    2. **Data Link (Veri Bağlantı):** MAC adresleri, çerçeveler, Ethernet. Switch’ler bu katmanda çalışır.
+    3. **Network:** IP adresleme, yönlendirme. Router’lar burada çalışır.
+    4. **Transport:** TCP/UDP, port numaraları, hata kontrolü, veri akışı.
+    5. **Session:** Oturum yönetimi, bağlantıların kurulması ve sonlandırılması.
+    6. **Presentation:** Veri formatı, şifreleme, sıkıştırma. Farklı sistemler arası veri dönüşümü.
+    7. **Application:** Kullanıcıya görünen servisler (HTTP, FTP, DNS, e-posta vb.).
+
+- **TCP/IP Modeli (4 Katman):** Gerçek dünyada daha çok kullanılan, pratik bir modeldir:
+    1. **Network Access (Physical + Data Link):** Donanım ve bağlantı protokolleri.
+    2. **Internet (Network):** IP adresleme ve yönlendirme.
+    3. **Transport:** TCP/UDP, portlar.
+    4. **Application (Session + Presentation + Application):** Uygulama protokolleri.
+
+> 📌 **Not:** OSI modeli daha çok öğretici ve teoriktir, TCP/IP ise gerçek ağlarda uygulanan modeldir.
+
+---
+
+#### 3️⃣ TCP/IP Temelleri ve IP Adresleme
+- **IPv4:** 32-bit adresleme, 4 oktet (ör: 192.168.1.1). Sınırlı adres alanı nedeniyle günümüzde IPv6’ya geçiş hızlanıyor.
+- **IPv6:** 128-bit adresleme, çok daha geniş adres alanı (ör: 2001:0db8::1). Geleceğin interneti için kritik.
+- **Subnet Mask:** IP adresinin ağ ve host kısmını ayırır (ör: 255.255.255.0). Alt ağlar oluşturmak için kullanılır.
+- **Default Gateway:** Ağdan dış dünyaya (ör: internete) çıkış noktasıdır. Genellikle router’ın IP’sidir.
+- **Port Numaraları:**
+    - 0–1023: Well-known ports (HTTP: 80, HTTPS: 443, DNS: 53, SSH: 22)
+    - 1024–49151: Registered ports
+    - 49152–65535: Dynamic/Ephemeral ports
+- **CIDR Notasyonu:** IP adresi + “/” ile subnet mask gösterimi (ör: 192.168.1.0/24). Daha esnek ağ tasarımı sağlar.
+- **Özel IP Aralıkları (RFC 1918):**
+    - 10.0.0.0/8
+    - 172.16.0.0/12
+    - 192.168.0.0/16
+  Bu adresler internette yönlendirilmez, yerel ağlarda kullanılır.
+
+---
+
+#### 4️⃣ Yaygın Ağ Protokolleri
+- **HTTP/HTTPS:** Web trafiği (80/443). HTTPS, SSL/TLS ile şifrelenmiş güvenli iletişim sağlar.
+- **DNS:** Alan adlarını IP adresine çevirir (53 UDP/TCP). İnternetin telefon rehberi gibidir.
+- **DHCP:** Otomatik IP adresi, ağ geçidi, DNS gibi bilgileri dağıtır (67/68 UDP). Ağ yönetimini kolaylaştırır.
+- **SMTP / IMAP / POP3:** E-posta gönderme ve alma protokolleri. SMTP (25), IMAP (143/993), POP3 (110/995).
+- **FTP / SFTP:** Dosya transferi. FTP (21) şifresiz, SFTP (22) SSH üzerinden güvenli.
+- **SNMP:** Ağ cihazlarının izlenmesi ve yönetimi için kullanılır.
+- **SSH:** Güvenli uzaktan bağlantı (22). Özellikle sunucu yönetiminde vazgeçilmezdir.
+
+> 🔎 **Ekstra:** Protokollerin çoğu hem TCP hem UDP kullanabilir. UDP hızlı ama güvenilmez, TCP ise bağlantı odaklı ve güvenilirdir.
+
+---
+
+#### 5️⃣ Ağ Cihazları ve Görevleri
+- **Switch:** Layer 2 cihazıdır, MAC adreslerine göre veri iletir. VLAN desteği ile ağları mantıksal olarak bölebilir. Modern switch’ler yönetilebilir (managed) veya yönetilemez (unmanaged) olabilir.
+- **Router:** Layer 3 cihazıdır, IP adreslerine göre yönlendirme yapar. Farklı ağlar arasında veri iletimini sağlar. Evdeki modemler genellikle router’dır.
+- **Firewall:** Trafiği filtreler, güvenlik politikaları uygular. Donanım (hardware) veya yazılım (software) tabanlı olabilir. Paket filtreleme, stateful inspection ve proxy gibi farklı türleri vardır.
+- **Access Point:** Kablosuz ağ erişimi sağlar. Genellikle switch veya router’a bağlıdır.
+- **Load Balancer:** Trafiği birden fazla sunucuya dağıtarak yükü dengeler, yüksek erişilebilirlik sağlar.
+
+> 🛡️ **Not:** Blue Team için firewall ve IDS/IPS cihazlarının doğru yapılandırılması kritik önemdedir.
+
+---
+
+#### 6️⃣ Ağ Segmentasyonu ve VLAN’lar
+- **Ağ Segmentasyonu:** Büyük bir ağı, daha küçük mantıksal parçalara ayırmak. Broadcast domain’leri küçültür, performansı ve güvenliği artırır.
+- **VLAN (Virtual LAN):** Layer 2 üzerinde mantıksal ağlar oluşturur. Farklı VLAN’lar, aynı fiziksel switch üzerinde bile birbirinden izole olabilir. VLAN’lar arası iletişim için router veya Layer 3 switch gerekir.
+- **Faydaları:**
+    - Performans artışı (daha az broadcast)
+    - Güvenliğin artması (farklı departmanlar izole edilir)
+    - Yönetim kolaylığı
+
+> 🧩 **Ekstra:** VLAN’lar, özellikle büyük şirketlerde departman bazlı ağ ayrımı için kullanılır. Örneğin, IT, HR ve Guest VLAN’ları.
+
+---
+
+#### 7️⃣ Paket Akışı (Packet Flow) ve Ağda Veri Yolculuğu
+- Uygulama katmanında veri oluşur (ör: bir web sayfası isteği).
+- Transport katmanında TCP/UDP portu eklenir.
+- Network katmanında IP adresi eklenir.
+- Data Link katmanında MAC adresi eklenir.
+- Fiziksel katmanda veri, kablo veya Wi-Fi üzerinden iletilir.
+- Karşı tarafta bu süreç tersine çözülür ve veri uygulamaya ulaşır.
+
+> 📦 **Not:** Paketlerin ağda nasıl yol aldığını anlamak, sorun giderme ve güvenlik için çok önemlidir.
+
+---
+
+#### 8️⃣ Ağ Güvenliği Temelleri
+- **ACL (Access Control List):** Hangi trafiğin geçeceğini veya engelleneceğini belirler. Router ve firewall’larda kullanılır.
+- **NAT (Network Address Translation):** Yerel (özel) IP’leri internete çıkarken tek bir genel IP’ye çevirir. Ev ağlarında yaygındır.
+- **VPN (Virtual Private Network):** Uzak ağlara güvenli tünel ile erişim sağlar. Şirketler için uzaktan çalışma çözümüdür.
+- **IDS/IPS:** Saldırı tespit (Intrusion Detection System) ve önleme (Intrusion Prevention System) sistemleri. Ağ trafiğini analiz ederek şüpheli aktiviteleri tespit eder.
+
+---
+
+#### 9️⃣ İzleme ve Sorun Giderme Araçları
+- **ping:** Hedefe erişilebilir mi test eder.
+- **traceroute / tracert:** Paketlerin geçtiği yolları listeler, ağdaki gecikme ve kopuklukları bulmak için kullanılır.
+- **nslookup / dig:** DNS sorguları yapar, alan adlarının IP karşılığını bulur.
+- **netstat / ss:** Aktif bağlantıları ve portları listeler.
+- **tcpdump / Wireshark:** Ağ trafiğini analiz eder. Wireshark, görsel arayüzüyle paketleri detaylı incelemek için çok güçlüdür (bunu yarın detaylıca çalışacağım!).
+
+> 🛠️ **Ekstra:** Bu araçlar, ağda sorun giderme ve güvenlik analizi için Blue Team’in vazgeçilmezidir.
+
+---
+
+#### 🏁 Günün Sonucu ve Sonraki Adım
+Bugün, ağların temellerinden başlayıp, protokoller, cihazlar, segmentasyon ve güvenlik konularına kadar kapsamlı bir teorik altyapı oluşturdum. Wireshark gibi pratik gerektiren araçları ise yarına bırakıyorum. Networking bilgisi, siber güvenliğin temel taşlarından biri ve Blue Team için vazgeçilmez! Yarın daha fazla pratik ve uygulama ile devam edeceğim.
+
+Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 
 ---
