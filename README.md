@@ -34,13 +34,15 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi](#gun-2025-08-07)
 - [🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor](#gun-2025-08-11)
 - [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-12)
+- [🗓️ 14 Ağustos 2025: Wireshark ile Trafik Analizi – Protokollerin Derinliklerine Yolculuk!](#gun-2025-08-14)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 
 ---
 
 ## 🚀 Günlükler Başlıyor!
 <a id="gun-2025-08-04"></a>
-### 🗓️ 4 Ağustos 2025: Laboratuvar Kurulumu ve İlk Domain Macerası
+## 🗓️ 4 Ağustos 2025
+### Laboratuvar Kurulumu ve İlk Domain Macerası 🧪
 
 **Bugünkü Konu:** Blue Team laboratuvar ortamının hazırlanması. 🧪
 
@@ -86,9 +88,12 @@ Ping testinde Windows 10'dan sunucuya ping gidebiliyorken, sunucudan Windows 10'
 #### Günün Sonucu ve Sonraki Adımlar 🏁
 Laboratuvarım artık hazır! Bu temel kurulum, yol haritamdaki pratik uygulamalar için sağlam bir zemin oluşturdu. Artık gönül rahatlığıyla başlayabilirim!
 
+Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
+
 ---
 <a id="gun-2025-08-05"></a>
-### 🗓️ 5 Ağustos 2025: Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler
+## 🗓️ 5 Ağustos 2025
+### Active Directory'nin Kalbine İniyoruz: OU, Kullanıcılar ve İzinler 💙
 
 **Bugünkü Konu:** Active Directory'nin kalbine yolculuk ve ilk pratik uygulamalar. 💙
 
@@ -138,12 +143,14 @@ Bu komut, Windows'a "Hayır, yerel yöneticiyi değil, `muzafferdomain` krallı�
 #### 🏁 Günün Sonucu ve Kapanış Düşünceleri
 Bugün, Active Directory'nin teorik derinliklerine inip bunu kendi laboratuvarımda hayata geçirdim. Hatalar yapmak ve bu hataların nedenini anlayarak çözmek, öğrenme sürecinin en kalıcı parçası. Bu rehberi günlük tutar gibi yazıyorum çünkü amacım sadece "şunu yapın" demek değil, aynı zamanda bu yolda yürürken başınıza gelebilecek gerçekçi senaryoları ve hisleri de paylaşmak. Umarım hep birlikte gelişiriz.
 
-Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak. İyi akşamlar! 😊
+Yarınki hedefim, Windows Server serüvenini GPO (Grup İlke Nesneleri) ile daha derinlemesine inceleyerek tamamlamak.
+
+Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 
 ---
 <a id="gun-2025-08-06"></a>
-
-### 🗓️ 6 Ağustos 2025: GPO ile İmparatorluğun Kurallarını Yazmak
+## 🗓️ 6 Ağustos 2025
+### GPO ile İmparatorluğun Kurallarını Yazmak ⚖️
 Bugünkü Konu: Grup İlke Nesneleri (Group Policy Objects - GPO) ile merkezi yönetim. ⚖️
 
 #### Günün Özeti
@@ -189,12 +196,12 @@ Kullanıcılar oturum açmadan önce onlara bir uyarı veya bilgilendirme metni 
 🏁 Günün Sonucu ve Kapanış Düşünceleri
 Bugün, başlangıçtaki tüm aksiliklere rağmen GPO'nun temel mantığını ve gücünü kavramakla geçti. Birkaç tıklama ile tüm bir departmanın çalışma ortamını nasıl şekillendirebildiğini görmek müthiş bir deneyimdi. Çok yorucu bir gün oldu ama değdi.
 
-Umarım yarın Windows Server ile ilgili son konuları da tamamlayıp bu ilk büyük adımı bitirebilirim. Bu yolculukta bana eşlik eden herkese bol çalışmalar dilerim! 😊
+Umarım yarın Windows Server ile ilgili son konuları da tamamlayıp bu ilk büyük adımı bitirebilirim. Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 
 ---
 <a id="gun-2025-08-07"></a>
-
-### 🗓️ 7 Ağustos 2025: Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi
+## 🗓️ 7 Ağustos 2025
+### Windows Server'da Ustalığa Son Adım: DNS, DHCP ve Ötesi 🎉
 Bugünkü Konu: Windows Server yönetiminin temel taşları ve yol haritasının ilk büyük bölümünün tamamlanışı! 🎉
 
 #### Günün Özeti
@@ -281,11 +288,12 @@ Remote Access ve Hyper-V: Performans sorunları nedeniyle bu konuları (RDP, VPN
 🏁 Günün Sonucu ve Büyük Başarı: Windows Server Bölümü Tamamlandı!
 Bugün, yol haritamızdaki "Operating System Mastery" bölümünün Windows Server kısmını ve hatta AD/GPO temellerini tamamen bitirmiş oldum! Çok sayıda konuyu bir güne sığdırmak yorucuydu ama her bir parçanın birbiriyle nasıl konuştuğunu görmek paha biçilmezdi. Artık sağlam bir Windows altyapısına sahibim.
 
-Sıradaki büyük macera, Linux yönetimi! İleriki çalışmalarda görüşmek üzere! 🚀
+Sıradaki büyük macera, Linux yönetimi! Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 
 ---
 <a id="gun-2025-08-11"></a>
-### 🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor
+## 🗓️ 11 Ağustos 2025
+### Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor 🐧
 
 **Bugünkü Konu:** Linux administration (Ubuntu, CentOS, RHEL), PowerShell ve Bash scripting basics, System logging and event management. Artık bir sonraki büyük adım olan Network Deep Dive ünitesine geçmeye hazırım! 🚀
 
@@ -362,11 +370,14 @@ Sistem loglarının ne olduğunu, log türlerini ve Windows Event Log sistemini 
 ---
 
 #### 🏁 Günün Sonucu ve Sonraki Adım
-Bugün, Linux yönetimi ve script temelleriyle ilgili önemli bir aşamayı tamamladım. Konuların çoğu daha önce bildiğim için hızlıca ilerledim, odak noktam hatırlatıcı ve rehber niteliğinde çalışmak oldu. Bundan sonraki ünitede "Network Deep Dive" ile ağ dünyasına daha derinlemesine dalacağım! Herkese sağlıklı güzel günler diliyorum esenlikle kalın! 🌟
+Bugün, Linux yönetimi ve script temelleriyle ilgili önemli bir aşamayı tamamladım. Konuların çoğu daha önce bildiğim için hızlıca ilerledim, odak noktam hatırlatıcı ve rehber niteliğinde çalışmak oldu. Bundan sonraki ünitede "Network Deep Dive" ile ağ dünyasına daha derinlemesine dalacağım!
+
+Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 
 ---
 <a id="gun-2025-08-12"></a>
-### 🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk! 🌐
+## 🗓️ 12 Ağustos 2025
+### Networking Deep Dive – Ağların Derinliklerine Yolculuk! 🌐
 
 **Bugünkü Konu:** TCP/IP stack ve OSI modeli, ağ protokolleri (HTTP/HTTPS, DNS, DHCP, SMTP), ağ cihazları (switch, router, firewall), ağ segmentasyonu ve VLAN’lar. Wireshark’ı ise pratik gerektirdiği için yarına bırakıyorum! 🕵️‍♂️
 
@@ -492,5 +503,64 @@ Bugün, siber güvenlik yolculuğumda yepyeni bir üniteye, Networking Deep Dive
 Bugün, ağların temellerinden başlayıp, protokoller, cihazlar, segmentasyon ve güvenlik konularına kadar kapsamlı bir teorik altyapı oluşturdum. Wireshark gibi pratik gerektiren araçları ise yarına bırakıyorum. Networking bilgisi, siber güvenliğin temel taşlarından biri ve Blue Team için vazgeçilmez! Yarın daha fazla pratik ve uygulama ile devam edeceğim.
 
 Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
+
+---
+<a id="gun-2025-08-14"></a>
+## 🗓️ 14 Ağustos 2025
+### Wireshark ile Trafik Analizi – Protokollerin Derinliklerine Yolculuk! 🕵️‍♂️🌐
+
+**Bugünkü Konu:** Wireshark ile ağ trafiği analizi ve internet protokollerinin detaylı incelenmesi. Bugün hem teorik hem pratik olarak protokolleri ve Wireshark'ın temel özelliklerini keşfettim! 🚦
+
+#### Günün Özeti
+Bugün, siber güvenlik yolculuğumda Wireshark programını kullanarak ağ trafiği analizine odaklandım. Hacker Joe'nun Wireshark tanıtım videosunu izledim ve videoda vurgulanan internet protokollerini tekrar gözden geçirdim. Daha önce bu konuları çalışmış olsam da, bazı detayları kaçırmış olabileceğimi fark ettim ve eksik kalan noktaları tamamlamak için tekrar ettim. Gerçekten de bazı protokolleri yüzeysel geçtiğimi fark ettim! 🔍
+
+---
+
+#### 🌐 İnternet Protokolleri: Teorik Bilgiler ve Örnekler
+Bugün üzerinde durduğum protokolleri ve kavramları tek tek açıklayacağım. Her birinin ne işe yaradığını, nasıl çalıştığını ve pratikte nerede karşılaşabileceğimizi örneklerle anlatacağım. 👨‍🏫
+
+- **IP Adresi:** Bir cihazın ağdaki kimliğidir. Örneğin, evdeki bilgisayarın IP'si `192.168.1.5` olabilir. Her cihazın benzersiz bir IP adresi olmalı ki veri doğru yere ulaşsın.
+- **Public ve Private IP Adresi:**
+    - *Public IP* (Genel IP): İnternete çıkarken kullandığımız, ISP tarafından verilen IP'dir. Örneğin, evdeki modeminizin dış dünyaya görünen IP'si.
+    - *Private IP* (Yerel IP): Ev veya iş ağında kullanılan, internette yönlendirilmez. Örneğin, `192.168.1.10`.
+- **LAN (Local Area Network):** Ev, okul veya ofis gibi küçük bir alanda cihazların birbirine bağlandığı ağdır. Örneğin, evdeki bilgisayarlar ve yazıcılar aynı LAN'da olabilir.
+- **NAT (Network Address Translation):** Birden fazla cihazın internete tek bir public IP ile çıkmasını sağlar. Evdeki tüm cihazlar, modem sayesinde NAT ile internete çıkar. 🏠➡️🌍
+- **DHCP (Dynamic Host Configuration Protocol):** Cihazlara otomatik IP adresi, ağ geçidi ve DNS bilgisi dağıtır. Örneğin, yeni bir telefon Wi-Fi'ya bağlandığında IP'sini DHCP ile alır.
+- **IP Paketi ve İçeriği:** Bir IP paketi, verinin ağda taşınan birimidir. İçinde kaynak/destinasyon IP, protokol bilgisi ve veri bulunur.
+- **TCP (Transmission Control Protocol):** Güvenilir veri iletimi sağlar. Bağlantı kurmak için "3-way handshake" (SYN, SYN-ACK, ACK) kullanır. Örneğin, bir web sitesine bağlanırken TCP ile iletişim kurarsın.
+    - *SYN, FIN, RST, URG, PSH, ACK bayrakları:* TCP paketlerinde bağlantı yönetimi için kullanılır. Mesela SYN ile bağlantı başlatılır, FIN ile sonlandırılır.
+    - *Acknowledgement Number:* Gönderilen verinin alındığını onaylayan numaradır. Pizza siparişi örneği: Sipariş verirsin (SYN), restoran onaylar (SYN-ACK), sen de onayladığını bildirirsin (ACK).
+- **UDP (User Datagram Protocol):** Hızlı ama güvenilir olmayan veri iletimi sağlar. Örneğin, canlı yayın veya oyunlarda UDP kullanılır.
+- **DNS (Domain Name System):** Alan adlarını IP'ye çevirir. "www.google.com" yazınca, DNS sunucusu IP adresini bulur.
+- **SNMP (Simple Network Management Protocol):** Ağ cihazlarını izlemek ve yönetmek için kullanılır. Örneğin, bir switch'in durumunu SNMP ile takip edebilirsin.
+- **NTP (Network Time Protocol):** Ağdaki cihazların saatlerini senkronize eder. Tüm sunucuların aynı zamanı kullanması için gereklidir.
+- **ARP (Address Resolution Protocol):** IP adresini MAC adresine çevirir. Bir bilgisayar, aynı ağdaki başka bir cihaza veri göndereceğinde ARP ile MAC adresini bulur.
+- **Router:** Farklı ağlar arasında veri ileten cihazdır. Evdeki modem genellikle router işlevi görür.
+- **Gateway:** Ağdan dış dünyaya çıkış noktasıdır. Genellikle router'ın IP'si gateway olur.
+- **Switch:** Aynı ağdaki cihazları birbirine bağlar. Switch, MAC adreslerine göre veri iletir.
+- **FTP (File Transfer Protocol):** Dosya transferi için kullanılır. Genellikle port 21 üzerinden çalışır.
+- **SMB (Server Message Block):** Windows ağlarında dosya ve yazıcı paylaşımı için kullanılır.
+- **Telnet:** Uzak cihazlara komut satırı üzerinden bağlanmak için kullanılır. Güvensizdir, şifreler açık gider.
+- **HTTP (Hypertext Transfer Protocol):** Web trafiği için kullanılır. "http://" ile başlayan siteler bu protokolü kullanır.
+
+Her protokolün Wireshark'ta nasıl göründüğünü test ettim ve pratikte karşılaştığım örnekleri inceledim. 🍕💻
+
+---
+
+#### 🦈 Wireshark ile Pratik: Temel Özellikler ve İpuçları
+Videoda öğrendiklerimi Wireshark üzerinde denedim. Program düşündüğümden daha kolay ve kullanıcı dostu geldi! 👀
+
+- **Ağ Seçimi ve Filtreleme:** Wireshark'ta analiz etmek istediğin ağı seçiyorsun. En üstteki arama çubuğu ile filtreleme yapmak çok kolay. Örneğin, sadece TCP paketlerini görmek için `tcp` yazmak yeterli.
+- **Filtre Operatörleri:** Arama çubuğunda `or`, `and`, `not` gibi operatörlerle filtreleri özelleştirebiliyorsun. Mesela, hem TCP hem UDP paketlerini görmek için `tcp or udp` yazabilirsin.
+- **Renk Kodlama:** Paketleri daha kolay ayırt etmek için filtrelere özel renkler atayabiliyorsun. Örneğin, DNS paketlerini mavi, HTTP paketlerini yeşil yapabilirsin. Bu görsel olarak analiz sürecini hızlandırıyor! 🎨
+- **Profil Sistemi:** Sağ altta "Profile" kısmı var. Buradan farklı analiz profilleri oluşturup ayarlarını dışa aktarabiliyor veya profiller arasında geçiş yapabiliyorsun. Hedefe göre özel profil oluşturmak çok kullanışlı! 🎯
+- **İstatistikler:** Wireshark'ın istatistik bölümü çok detaylı. Trafiğin yoğun olduğu durumlarda buradan genel bir bakış alabilirsin. Ancak bugün çok derinlemesine incelemedim, ileride daha detaylı çalışacağım.
+
+---
+
+#### 📝 Kapanış ve Gelecek Planı
+Wireshark ve protokollerle ilgili bugün bolca pratik yaptım. Programın temel mantığını kavradım ama daha karmaşık analizler için ileride daha fazla çalışmam gerekecek. SIEM araçlarında da benzer analizler yapacağımı düşünüyorum. Bu ünite oldukça teorik olsa da, tekrar etmek ve örneklerle çalışmak bilgilerin kalıcı olmasını sağlıyor. Bazen en temel kavramları bile unutabiliyoruz; o yüzden sık sık tekrar etmek çok önemli! 🔄
+
+Bugünkü çalışmam böyle geçti. Herkese bol çalışmalar, sağlıklı günler diliyorum. Esenlikle kalın! 🌟
 
 ---
