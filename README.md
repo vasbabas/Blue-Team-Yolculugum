@@ -35,10 +35,9 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 11 Ağustos 2025: Linux Yönetimi, Script Temelleri ve Sistem Loglarıyla Yolculuk Devam Ediyor](#gun-2025-08-11)
 - [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-12)
 - [🗓️ 14 Ağustos 2025: Wireshark ile Trafik Analizi – Protokollerin Derinliklerine Yolculuk!](#gun-2025-08-14)
+- [🗓️ 18 Ağustos 2025: Database Fundamentals ve Güvenlik – Temel Bilgiler, Pratikler ve Siber Güvenlik Bağlantısı](#gun-2025-08-18)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
-
 ---
-
 ## 🚀 Günlükler Başlıyor!
 <a id="gun-2025-08-04"></a>
 ## 🗓️ 4 Ağustos 2025
@@ -563,4 +562,110 @@ Wireshark ve protokollerle ilgili bugün bolca pratik yaptım. Programın temel 
 
 Bugünkü çalışmam böyle geçti. Herkese bol çalışmalar, sağlıklı günler diliyorum. Esenlikle kalın! 🌟
 
+---
+<a id="gun-2025-08-18"></a>
+# 🗓️ 18 Ağustos 2025
+## Database Fundamentals ve Güvenlik – Temel Bilgiler, Pratikler ve Siber Güvenlik Bağlantısı 🗄️🔒
+
+**Bugünkü Konu:** Veritabanı temelleri (SQL/NoSQL), veritabanı güvenliği, normalizasyon, indeksleme ve sorgu optimizasyonu. Hem teorik hem pratik olarak çalıştım, öğrendiklerimi özetliyorum!
+
+---
+
+### 1️⃣ SQL ve NoSQL Temelleri
+- **SQL (Structured Query Language):** İlişkisel veritabanlarında veriler tablo, satır ve sütun şeklinde saklanır. Veri bütünlüğü, tutarlılık ve karmaşık sorgular için idealdir. ACID (Atomicity, Consistency, Isolation, Durability) prensipleriyle çalışır. Büyük şirket uygulamalarında, finans ve ERP sistemlerinde yaygındır.
+- **NoSQL:** Esnek şema, yatay ölçeklenebilirlik ve büyük veri işleme için uygundur. JSON belgeler, anahtar-değer, grafik ve sütun tabanlı yapılar sunar. Eventual consistency (zamanla tutarlılık) yaklaşımıyla çalışır. Log analizi, IoT ve gerçek zamanlı uygulamalarda tercih edilir.
+
+**Temel SQL Komutları:**
+- `SELECT`: Veri sorgulama
+- `WHERE`: Filtreleme
+- `AND/OR`: Koşul birleştirme
+- `LIKE`: Desen eşleşmesi
+- `GROUP BY`: Gruplama
+- `COUNT`, `SUM`, `AVG`: Toplama fonksiyonları
+- `INSERT`, `UPDATE`, `DELETE`: Veri ekleme, güncelleme, silme
+
+**Pratik:**
+SQLite ile örnek bir tablo oluşturdum ve temel komutları çalıştırdım:
+```sql
+CREATE TABLE ogrenciler (
+  id INTEGER PRIMARY KEY,
+  ad TEXT,
+  soyad TEXT,
+  yas INTEGER
+);
+INSERT INTO ogrenciler (ad, soyad, yas) VALUES ('Ali', 'Yılmaz', 21);
+SELECT * FROM ogrenciler WHERE yas > 20;
+```
+---
+
+### 2️⃣ Database Security Concepts
+- **CIA Üçlüsü:**
+  - **Confidentiality (Gizlilik):** Verinin yetkisiz erişime karşı korunması. Şifreleme, erişim kontrolleri ve güvenlik duvarları ile sağlanır.
+  - **Integrity (Bütünlük):** Verinin doğruluğu ve değişmezliği. Hash algoritmaları, dijital imzalar ve denetim mekanizmaları kullanılır.
+  - **Availability (Erişilebilirlik):** Verinin ihtiyaç duyulduğunda erişilebilir olması. Yedekleme, felaket kurtarma ve yüksek erişilebilirlik çözümleri ile sağlanır.
+- **Authentication (Kimlik Doğrulama):** Kullanıcıların kimliğinin doğrulanması. Parola, çok faktörlü kimlik doğrulama (MFA), sertifika tabanlı girişler.
+- **Authorization (Yetkilendirme):** Kullanıcıya hangi işlemlerin izinli olduğunun belirlenmesi. Rol tabanlı erişim kontrolü (RBAC), yetki matrisleri.
+- **SQL Injection:** Zararlı sorgularla veritabanına sızma saldırısı. Parametreli sorgular, input validation ve web uygulama güvenlik duvarı (WAF) ile korunma.
+- **Veri Şifreleme:**
+  - **At Rest Encryption:** Verinin disk üzerinde şifrelenmesi. AES, TDE gibi teknolojiler.
+  - **In Transit Encryption:** Veri aktarımı sırasında şifreleme (ör: TLS/SSL).
+  - **Column/Field Encryption:** Hassas alanların ayrı şifrelenmesi. Kredi kartı, kimlik numarası gibi veriler için kullanılır.
+- **Backup & Recovery:** Düzenli yedekleme ve acil durumlarda geri yükleme. Tam, artımlı ve diferansiyel yedekleme yöntemleri.
+- **Logging & Auditing:** Erişim ve değişikliklerin kaydedilmesi, izlenmesi. Güvenlik olaylarının tespiti ve adli analiz için kritik.
+---
+
+### 3️⃣ NoSQL Pratiği ve Farkları
+MongoDB ile temel işlemler:
+```js
+// Belge ekleme
+ db.ogrenciler.insertOne({ ad: "Ayşe", soyad: "Kara", yas: 22 })
+// Sorgulama
+ db.ogrenciler.find({ yas: { $gt: 20 } })
+```
+NoSQL'de veri genellikle JSON formatında tutulur, şema esnektir. SIEM ve log analizi gibi büyük veri uygulamalarında yaygındır. Yüksek performans, esneklik ve ölçeklenebilirlik sağlar. SQL'den farklı olarak JOIN işlemleri sınırlı veya yoktur, veri genellikle denormalize edilir.
+
+
+
+**SQL vs NoSQL Tablosu:**
+| Özellik         | SQL (RDBMS)         | NoSQL (MongoDB, Elasticsearch) |
+|-----------------|---------------------|-------------------------------|
+| Veri Yapısı     | Tablo, satır, sütun | JSON belge, key-value, graph  |
+| Şema            | Sabit               | Esnek, dinamik                |
+| Ölçeklenebilirlik| Dikey               | Yatay, dağıtık                |
+| Tutarlılık      | ACID                | Eventual consistency          |
+| Sorgu Dili      | SQL                 | API/JSON                      |
+| Kullanım        | Finans, ERP         | Büyük veri, log, IoT          |
+---
+
+### 4️⃣ Data Normalization & Indexing
+- **Normalizasyon:** Verinin tekrarını azaltmak, tutarlılığı artırmak için tabloyu bölme işlemi. Temel formlar:
+  - **1NF (Birinci Normal Form):** Her alan atomik olmalı. Yani bir hücrede birden fazla veri olmamalı.
+  - **2NF (İkinci Normal Form):** Tüm alanlar tam anahtara bağlı olmalı. Kısmi bağımlılıklar kaldırılır.
+  - **3NF (Üçüncü Normal Form):** Tüm alanlar sadece anahtara bağlı olmalı. Transitif bağımlılıklar kaldırılır.
+
+<img width="721" height="244" alt="normalizyasyon" src="https://github.com/user-attachments/assets/0c4fe5af-02ac-4331-8289-9f33978a3f16" />
+
+- **İndeksleme:** Sorguları hızlandırmak için kullanılır. Büyük tablolarda arama ve sıralama işlemlerini optimize eder.
+  - **Primary Index:** Anahtar alan, genellikle benzersizdir.
+  - **Unique Index:** Tekil değerler, tekrar eden veri engellenir.
+  - **Composite Index:** Birden fazla alanı kapsar, karmaşık sorgularda kullanılır.
+  - **Full-text Index:** Metin aramalarında kullanılır, özellikle büyük metin alanlarında hızlı arama sağlar.
+SQLite üzerinde test ettim:
+---
+
+### 5️⃣ Query Optimization (Sorgu Optimizasyonu)
+- Amaç: Sorguların hızlı ve verimli çalışmasını sağlamak. Büyük veri tabanlarında performans kritik önemdedir.
+- Yöntemler:
+  - İndeks kullanımı ile arama hızlandırılır.
+  - `SELECT *` yerine sadece gerekli alanları seçmek, gereksiz veri transferini önler.
+  - `WHERE` ile filtreleme, gereksiz satırların sorguya dahil edilmesini engeller.
+  - JOIN'leri dikkatli kullanmak, karmaşık sorgularda performans kaybını önler.
+  - `LIMIT` ile veri miktarını sınırlamak, özellikle raporlama ve analizde gereksiz yükü azaltır.
+  - Normalizasyon/denormalizasyon dengesini kurmak, veri tekrarını ve karmaşıklığı azaltır.
+---
+
+### 🏁 Günün Sonucu ve Kapanış
+Bugün veritabanı temellerini, güvenlik kavramlarını, SQL ve NoSQL farklarını, normalizasyon ve indeksleme tekniklerini hem teorik hem pratik olarak çalıştım. İleride SIEM ve log analizi gibi konularda bu bilgiler çok işime yarayacak. Pratiklerimi artıracağım!
+
+Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
 ---
