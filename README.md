@@ -36,6 +36,7 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 12 Ağustos 2025: Networking Deep Dive – Ağların Derinliklerine Yolculuk!](#gun-2025-08-12)
 - [🗓️ 14 Ağustos 2025: Wireshark ile Trafik Analizi – Protokollerin Derinliklerine Yolculuk!](#gun-2025-08-14)
 - [🗓️ 18 Ağustos 2025: Database Fundamentals ve Güvenlik – Temel Bilgiler, Pratikler ve Siber Güvenlik Bağlantısı](#gun-2025-08-18)
+- [🗓️ 19 Ağustos 2025: Sahne Arkasına Bakış: Güvenlik Operasyon Merkezi (SOC) Nasıl Çalışır?](#gun-2025-08-19)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 ---
 ## 🚀 Günlükler Başlıyor!
@@ -668,4 +669,86 @@ SQLite üzerinde test ettim:
 Bugün veritabanı temellerini, güvenlik kavramlarını, SQL ve NoSQL farklarını, normalizasyon ve indeksleme tekniklerini hem teorik hem pratik olarak çalıştım. İleride SIEM ve log analizi gibi konularda bu bilgiler çok işime yarayacak. Pratiklerimi artıracağım!
 
 Herkese bol çalışmalar, sağlıklı günler diliyorum  esenlikle kalın ! 🌟
+---
+
+<a id="gun-2025-08-19"></a>
+# 🗓️ 19 Ağustos 2025
+## Security Operations Center (SOC) – Roller, Süreçler, Senaryolar ve Sürekli İyileştirme 🛡️🔍
+
+Bugün yeni üniteye başladım: Security Operations Center (SOC). Bu ünitede SOC ekiplerinin işleyiş biçimini, rollerini, vardiya ve iletişim prosedürlerini, metrik ve KPI’ları, sürekli iyileştirme süreçlerini senaryolarla ve örneklerle çalıştım. Pratik yapmaya uygun bir konu olmadığı için, teorik bilgileri akılda kalıcı hale getirmek için senaryolaştırdım. 📝
+
+---
+
+### 1️⃣ SOC Roles and Responsibilities (L1, L2, L3) 👨‍💻👩‍💻
+- **SOC Nedir?** Bir kurumun siber güvenlik olaylarını merkezi olarak izleyen, analiz eden ve müdahale eden ekip. 🏢
+- **Seviye Seviyelendirmesi:**
+  - **L1 (Tier 1 – Alert Analyst):** İlk savunma hattı. SIEM ekranını 7/24 izler, gelen alarmları inceler, false positive olup olmadığını kontrol eder. Basit olaylarda ilk aksiyonu alır. 🛡️
+    - *Senaryo:* "Failed Login Attempts from Turkey IP" alarmı. L1 kullanıcıya sorar, gerekirse hesabı kilitler ve L2’ye yükseltir. 🔒
+  - **L2 (Tier 2 – Incident Responder):** L1’den gelen olayları detaylı araştırır. Network trafiği, endpoint logları inceler, olayın gerçek tehdit olup olmadığını belirler, gerekirse saldırıyı durdurur. 🌐
+    - *Senaryo:* L1’den gelen şüpheli login. L2 Wireshark/EDR ile analiz yapar, anormal erişimi tespit eder, hesabı devre dışı bırakır. 🚨
+  - **L3 (Tier 3 – Threat Hunter / Expert):** En tecrübeli ekip. Malware analizi, reverse engineering, APT araştırmaları, threat hunting, SIEM kural optimizasyonu, diğer ekipleri eğitme. 🧑‍🔬
+    - *Senaryo:* L2 şüpheli dosya bulur, L3 sandbox’ta analiz eder, ransomware olduğunu tespit eder, IOC çıkarır ve SIEM’e kural yazar. 🦠
+
+**📊 Özet Tablo:**
+| Seviye |           Görev               |           Örnek Senaryo              |
+|--------|-------------------------------|--------------------------------------|
+| L1     | Alarm izleme, ilk kontrol     | Anormal login alarmlarını incelemek  |
+| L2     | Derin analiz, olay müdahalesi | Tor IP’den login girişini engellemek |
+| L3     | İleri analiz, threat hunting  | Ransomware analizi ve IOC çıkarmak   |
+
+---
+
+### 2️⃣ Shift Operations and Handover Procedures 🔄🕒
+- **Vardiya Operasyonları:** SOC operasyonları 7/24 devam eder. Analist gelen alarmları izler, yanlış pozitifleri ayıklar, olaylara müdahale eder, dokümantasyon tutar. 📋
+- **Handover (Devir Teslim):** Vardiya değişiminde bilgi kaybı olmaması için açık olaylar, alınan ve beklenen aksiyonlar, kritik alarmlar ve iletişim bilgileri yazılı olarak devredilir. 🔗
+  - *Senaryo:* Gece analisti, şüpheli login aktivitesi tespit eder, hesabı disable eder, AD logları inceleniyor. Handover’da not bırakır, sabah analisti olayı devralır ve brute-force saldırısını tespit eder. 🌙➡️🌞
+- **Ekstra Bilgiler:**
+  - Runbook/Playbook: Standart prosedürler. 📑
+  - Ticketing System: Jira, ServiceNow, TheHive. 🎫
+  - Shift Handover Meeting: Kısa toplantı ile kritik olaylar aktarılır. 👥
+
+---
+
+### 3️⃣ Escalation Procedures and Communication 🚦📞
+- **Escalation Nedir?** Olayın mevcut seviyedeki analistin çözüm yetkisini aştığında üst seviyeye veya ilgili ekibe aktarılması. ⬆️
+- **Amaç:** Yanlış alarm ile vakit kaybetmemek, kritik olayların doğru kişilere ulaşmasını sağlamak. ⏱️
+- **Türler:**
+  - Technical Escalation: L1 → L2 → L3. 🧑‍💻➡️🧑‍🔬
+  - Hierarchical Escalation: Operasyonel sınır aşıldığında yöneticilere raporlama. 🏢
+- **Süreç:** Olayı belirle, ön analiz yap, çözülemiyorsa yükselt, dokümante et, iletişim kurallarına uy. 🗂️
+- **İletişim:**
+  - Net, sade dil. 🗣️
+  - Kanallar: Ticketing, telefon, acil chat. 📱💬
+  - Zincir: Önce ilgili seviye, sonra yöneticiler, gerekirse dış ekipler. 🔗
+- *Senaryo:* L1, web sunucusunda şüpheli trafik tespit eder, L2’ye escalate eder, L2 credential stuffing bulur, CISO’ya raporlanır. 🌐🚨
+- **Ek Bilgiler:**
+  - Runbook & Playbook, SLA, iletişim matriksi. 📑⏳
+
+---
+
+### 4️⃣ SOC Metrics & KPIs 📈📊
+- **Metric:** Genel ölçüm değeri. Örn: Toplam olay sayısı. 🔢
+- **KPI:** Performans göstergesi. Örn: Olay tespit süresi (MTTD), çözüm süresi (MTTR). ⏱️
+- **Başlıca Metrics:** Incident count, false positive rate, alarm türleri, detection time, resolution time. 🧮
+- **Başlıca KPIs:** MTTD, MTTR, false positive ratio, SLA uyum oranı, incident escalation rate. 🎯
+- *Senaryo 1:* MTTD – Saldırı 09:00’da başlıyor, 10:00’da tespit ediliyor → tespit süresi 1 saat. ⏰
+- *Senaryo 2:* MTTR – Phishing mail olayı 1 saatte çözülüyor. 📧
+- *Senaryo 3:* False Positive – 100 alarmdan 40’ı yanlış, oran %40. 🚫
+
+---
+
+### 5️⃣ Continuous Improvement in SOC Operations 🔁🚀
+- **Sürekli İyileştirme:** SOC süreçleri PDCA döngüsüyle sürekli geliştirilir. 🔄
+  - Plan: Risk analizi, yeni tehditler, hedef KPI/SLA belirleme. 📝
+  - Do: Süreçleri uygula, olaylara müdahale et, yeni playbook ekle. 🛠️
+  - Check: KPI/metrik analizi, red/purple team testleri. 📊
+  - Act: Eksikleri düzelt, yeni teknik/araç entegre et, eğitim ver. 🎓
+- **Yöntemler:** Lessons learned meetings, threat hunting, red/purple team egzersizleri, tool optimization, training & knowledge sharing. 🧑‍🏫🔬
+
+---
+
+Bugünkü bilgileri senaryolarla ve örneklerle aktardım. Teorik bir ünite olduğu için pratik yapma imkanı olmadı, ama senaryolarla akılda kalıcı olmasını sağladım. Umarım faydalı olmuştur.
+
+Herkese bol çalışmalar, sağlıklı günler diliyorum. Esenlikle kalın! 🌟
+
 ---
