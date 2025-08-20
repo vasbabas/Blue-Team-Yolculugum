@@ -37,6 +37,7 @@ Aşağıdaki listeden ilgili günün kaydına doğrudan atlayabilirsiniz.
 - [🗓️ 14 Ağustos 2025: Wireshark ile Trafik Analizi – Protokollerin Derinliklerine Yolculuk!](#gun-2025-08-14)
 - [🗓️ 18 Ağustos 2025: Database Fundamentals ve Güvenlik – Temel Bilgiler, Pratikler ve Siber Güvenlik Bağlantısı](#gun-2025-08-18)
 - [🗓️ 19 Ağustos 2025: Sahne Arkasına Bakış: Güvenlik Operasyon Merkezi (SOC) Nasıl Çalışır?](#gun-2025-08-19)
+- [🗓️ 20 Ağustos 2025: Zararlı Yazılım (Malware) Türleri Rehberi](#gun-2025-08-20)
 - *(Yeni günlük eklendiğinde buraya bir satır daha eklenecek...)*
 ---
 ## 🚀 Günlükler Başlıyor!
@@ -750,5 +751,144 @@ Bugün yeni üniteye başladım: Security Operations Center (SOC). Bu ünitede S
 Bugünkü bilgileri senaryolarla ve örneklerle aktardım. Teorik bir ünite olduğu için pratik yapma imkanı olmadı, ama senaryolarla akılda kalıcı olmasını sağladım. Umarım faydalı olmuştur.
 
 Herkese bol çalışmalar, sağlıklı günler diliyorum. Esenlikle kalın! 🌟
+
+---
+
+# 🗓️ 20 Ağustos 2025
+## Zararlı Yazılım (Malware) Türleri Rehberi 🛡️
+
+Merhaba! Bugün log inceleme ünitesine geçmeden önce, loglarda zararlı yazılımları tespit edebilmek için öncelikle virüs türlerini ve temel malware çeşitlerini öğrenmemiz gerektiğini düşündüm. Çünkü bir zararlının davranışını ve izini bilmeden, loglarda ne arayacağımızı da bilemeyiz. Bu rehberde, siber güvenlik dünyasında en sık karşılaşılan zararlı yazılım türlerini, çalışma prensiplerini, tespit ve korunma yöntemlerini, gerçek hayattan örneklerle birlikte detaylıca ele aldım.
+
+---
+<a id="gun-2025-08-20"></a>
+## 🦠 Virüsler (Viruses)
+### 🧐 Nedir ve Nasıl Çalışır?
+Virüsler, adlarını biyolojik benzerlerinden alırlar. Tıpkı bir hücreye sızan biyolojik bir virüs gibi, bilgisayar virüsleri de kendilerini meşru bir programa veya dosyaya "eklerler". Bu "konak" dosya çalıştırıldığında, virüs de aktif hale gelir, kendini kopyalar ve diğer dosyalara bulaşmaya çalışır. Yayılmak için insan etkileşimine (örneğin, bir dosyayı çalıştırmak, bir e-posta ekini açmak) ihtiyaç duyarlar. Virüsler, makro virüsleri (Office belgelerindeki makrolara bulaşır), boot sector virüsleri (bilgisayarın başlangıç disk bölümünü hedef alır) veya polimorfik virüsler (antivirüslerden saklanmak için kodunu sürekli değiştiren gelişmiş virüsler) gibi farklı türlere ayrılabilir.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+ILOVEYOU Virüsü (2000): "ILOVEYOU" konu başlığı ve "LOVE-LETTER-FOR-YOU.txt.vbs" adlı bir ek içeren bir e-posta ile yayıldı. Milyonlarca insan merak edip eki açtığında, virüs aktif hale gelerek kullanıcının Outlook adres defterindeki herkese kendini gönderdi ve bilgisayardaki .jpg, .mp3 gibi dosyaları sildi. Bu saldırı, sosyal mühendisliğin ne kadar güçlü olduğunu ve basit bir merak duygusunun küresel bir salgına nasıl yol açabileceğini göstermiştir.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **İmza Tabanlı Tespit:** Antivirüs yazılımları, bilinen virüslerin benzersiz "parmak izlerini" (imzalarını) içeren bir veritabanına sahiptir. Bir dosyayı taradığında, bu imzalarla eşleşip eşleşmediğini kontrol eder. Bu yöntem hızlı ve etkilidir ancak sadece bilinen tehditleri yakalayabilir.
+
+- **Davranış Analizi (Heuristics):** Bu daha proaktif bir yöntemdir. Antivirüs, bir programın şüpheli davranışlar sergileyip sergilemediğini izler. Örneğin, bir Word belgesinin aniden ağ bağlantısı kurmaya veya sistem dosyalarını değiştirmeye çalışması gibi anormal eylemler, bir makro virüsünün işareti olabilir ve program tarafından engellenir.
+
+- **Belirtiler:** Bilgisayarın belirgin şekilde yavaşlaması, sık sık kilitlenmesi, beklenmedik pop-up'lar, dosyaların bozulması, kaybolması veya dosya boyutlarının anlamsız bir şekilde artması.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **Antivirüs ve Anti-Malware Yazılımı:** Her zaman güncel bir antivirüs programı kullanın ve düzenli tam sistem taramaları yapın. "Gerçek zamanlı koruma" özelliğinin açık olduğundan emin olun.
+
+- **Şüpheli Ekler ve İndirmeler:** Tanımadığınız kişilerden gelen e-posta eklerini veya güvenilmeyen sitelerden indirilen dosyaları asla açmayın. Dosya uzantılarına dikkat edin; .exe, .vbs, .scr gibi uzantılar özellikle tehlikelidir.
+
+- **İşletim Sistemi ve Yazılım Güncellemeleri:** Yazılımlardaki güvenlik açıklarını kapatmak için tüm güncellemeleri zamanında yapın. Bu, virüslerin sömürebileceği potansiyel giriş noktalarını kapatır.
+
+## 🐛 Solucanlar (Worms)
+### 🧐 Nedir ve Nasıl Çalışır?
+Solucanlar, virüslerin aksine yayılmak için bir konak dosyaya veya insan etkileşimine ihtiyaç duymazlar. Kendi kendilerine çoğalır ve ağdaki güvenlik açıklarını (örneğin, güncellenmemiş bir yazılım servisi) kullanarak bir bilgisayardan diğerine otomatik olarak yayılırlar. Genellikle ağdaki diğer zayıf makineleri bulmak için port taraması yaparlar. Amaçları genellikle mümkün olduğunca çok sisteme bulaşarak bir botnet oluşturmak, ağ trafiğini felç etmek veya fidye yazılımı gibi başka zararlıları indirmektir.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+Stuxnet (2010): Sadece yayılmakla kalmayıp, fiziksel altyapıyı hedef alan ilk siber silahlardan biri olarak kabul edilir. İran'ın nükleer programını hedef alan bu solucan, USB bellekler ve ağ açıkları üzerinden yayılarak, spesifik endüstriyel kontrol sistemlerini (SCADA) aradı. Bu sistemleri bulduğunda, uranyum zenginleştirmede kullanılan santrifüjlerin hızını tehlikeli seviyelerde değiştirerek fiziksel hasara yol açtı.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **Ağ Trafiği Analizi:** Ağda beklenmedik ve yoğun bir trafik (özellikle SMB portu 445 gibi belirli portlarda) solucan belirtisi olabilir. Güvenlik duvarı (firewall) ve IDS/IPS (Saldırı Tespit/Önleme Sistemleri), bilinen solucanların yayılma modellerini tanıyan imzalara sahiptir ve bu tür anormal trafiği tespit edip engelleyebilir.
+
+- **Davranış Analizi:** Bir sistemin, ağdaki diğer sistemlere sürekli olarak belirli portlardan bağlanmaya çalışması veya rastgele IP adreslerini taraması şüphelidir. EDR çözümleri bu tür davranışları tespit edebilir.
+
+- **Belirtiler:** İnternet bağlantısının ve yerel ağın aşırı yavaşlaması, bilgisayarın fanlarının sürekli yüksek hızda çalışması, güvenlik duvarınızdan gelen çok sayıda giden bağlantı uyarısı.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **Güvenlik Duvarı (Firewall):** Doğru yapılandırılmış bir güvenlik duvarı, solucanların kullandığı portları kapatarak veya anormal tarama aktivitelerini engelleyerek yayılmasını yavaşlatabilir.
+
+- **Yama Yönetimi (Patch Management):** Solucanlar en çok bilinen ve yaması yayınlanmış güvenlik açıklarını kullandığı için, tüm sistem ve yazılım yamalarını anında uygulamak en etkili korunma yöntemidir. "Yama Salı"larını (Patch Tuesday) takip etmek kritiktir.
+
+- **Ağ Segmentasyonu:** Ağı farklı segmentlere (VLAN'lar gibi) ayırmak, bir solucanın bir segmente bulaşması durumunda diğer kritik segmentlere (örneğin, sunucu ağına) yayılmasını engeller.
+
+## 🐴 Truva Atları (Trojans)
+### 🧐 Nedir ve Nasıl Çalışır?
+Adını, içine askerlerin gizlendiği ünlü Truva Atı'ndan alır. Truva atları, meşru ve zararsız bir yazılım (örneğin, bir oyun, bir PDF okuyucu, bir sistem temizleme aracı) gibi görünen ancak arka planda kötü amaçlı işler yapan yazılımlardır. Kendi kendilerine yayılmazlar; kullanıcının sosyal mühendislik teknikleriyle kandırılarak onları isteyerek indirip çalıştırması gerekir. Bir kez çalıştığında, saldırgana sisteme bir arka kapı (backdoor) açabilir, onu bir botnet'e dahil edebilir veya fidye yazılımı gibi başka zararlıları indirebilir. RAT (Remote Access Trojan) en tehlikeli türlerinden biridir ve saldırgana kurbanın bilgisayarı üzerinde tam kontrol (kamerasını açma, dosyalarını yönetme vb.) sağlar.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+Zeus Trojanı: Bankacılık bilgilerini çalmak için tasarlanmış en ünlü Truva atlarından biridir. Kullanıcılar meşru görünümlü bir yazılım indirdiğinde, Zeus arka planda çalışarak kullanıcı banka sitesine girdiğinde tuş vuruşlarını kaydeder (keylogging) veya tarayıcıya sahte bir giriş ekranı enjekte ederek kimlik bilgilerini çalar. Bu, "Man-in-the-Browser" saldırısının klasik bir örneğidir.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **Antivirüs Taramaları:** İyi bir antivirüs, bilinen Truva atlarının imzalarını tanıyabilir.
+
+- **Ağ İzleme:** Bilgisayarınızın, siz farkında olmadan bilinmeyen veya şüpheli bir sunucuya (Komuta & Kontrol sunucusu) sürekli veri gönderdiğini fark ederseniz, bu bir Truva atı belirtisi olabilir. Wireshark gibi araçlarla bu trafik incelenebilir.
+
+- **Endpoint Detection and Response (EDR):** EDR çözümleri, bir programın normal davranışının dışına çıktığını (örneğin, svchost.exe gibi meşru bir Windows işleminin içine kod enjekte etmesi) tespit edebilir.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **Güvenilir Kaynaklar:** Sadece resmi ve güvenilir web sitelerinden veya uygulama mağazalarından yazılım indirin. Korsan yazılımlar ve "crack" dosyaları en yaygın Truva atı kaynaklarıdır.
+
+- **E-posta Dikkat:** "Faturanız ektedir" veya "Kargo takip numaranız" gibi görünen sahte e-postalardaki eklere karşı son derece dikkatli olun.
+
+- **Kullanıcı Hesabı Denetimi (UAC):** Windows'taki UAC gibi mekanizmalar, bir program yönetici hakları istediğinde sizi uyarır. Ne kurduğunuzdan emin değilseniz asla izin vermeyin.
+
+## 💸 Fidye Yazılımları (Ransomware)
+### 🧐 Nedir ve Nasıl Çalışır?
+Fidye yazılımları, günümüzün en tehlikeli ve en kârlı zararlı yazılım türüdür. Bir sisteme bulaştığında, kullanıcının kişisel dosyalarını (fotoğraflar, belgeler, veritabanları) güçlü bir şifreleme algoritmasıyla (genellikle AES veya RSA) şifreler ve dosyaları açamaz hale getirir. Ardından, dosyaları geri getirecek olan şifre çözme anahtarı (decryption key) için kullanıcıdan genellikle kripto para (Bitcoin vb.) ile fidye talep eder. Modern saldırganlar artık "çifte şantaj" (double extortion) taktiğini kullanmaktadır: Dosyaları şifrelemeden önce hassas verileri kendi sunucularına kopyalarlar ve kurban fidyeyi ödemezse verileri internette yayınlamakla tehdit ederler.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+WannaCry (2017): Windows'taki EternalBlue adlı bir güvenlik açığını kullanarak (solucan gibi) yayıldı ve dünya çapında yüz binlerce bilgisayarı etkiledi. Hastaneler, şirketler ve kamu kurumları dahil olmak üzere birçok sistemi kilitledi ve dosya başına 300-600 dolar fidye talep etti. Bu saldırı, yamanın yayınlanmış olmasına rağmen uygulanmamasının ne kadar yıkıcı sonuçlara yol açabileceğini acı bir şekilde göstermiştir.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **Davranış Analizi:** Bir işlemin kısa sürede binlerce dosyayı okuyup, şifreleyip, yeniden yazması tipik bir fidye yazılımı davranışıdır. Modern güvenlik yazılımları (EDR, XDR) bu anormal dosya aktivitesini tespit ederek işlemi anında sonlandırabilir.
+
+- **"Canary" Dosyaları / Honeypot'lar:** Sistemin belirli yerlerine, içinde anlamsız veriler olan "kanarya" dosyaları veya sahte ağ paylaşımları yerleştirilir. Eğer bu dosyalarda bir değişiklik (şifrelenme) tespit edilirse, fidye yazılımı saldırısı olduğu anlaşılır ve süreç otomatik olarak durdurulur.
+
+- **Fidye Notu:** En bariz belirti, masaüstünde beliren ve dosyalarınızın şifrelendiğini, fidyeyi nasıl ödeyeceğinizi anlatan bir metin dosyası (DECRYPT_ME.txt gibi) veya duvar kağıdıdır.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **YEDEKLEME (3-2-1 Kuralı)!** En etkili savunma budur. Verilerinizin 3 kopyasını, 2 farklı medya türünde saklayın ve bu kopyalardan 1 tanesi mutlaka çevrimdışı (ağa bağlı olmayan) veya değiştirilemez (immutable) bir ortamda olsun. Böylece dosyalarınız şifrelense bile yedeğinizden geri dönebilirsiniz.
+
+- **E-posta Güvenliği:** Fidye yazılımlarının en yaygın bulaşma yolu phishing e-postalarıdır. Gelişmiş e-posta güvenlik çözümleri kullanın ve kullanıcıları şüpheli eklere ve linklere asla tıklamamaları konusunda eğitin.
+
+- **En Az Yetki Prensibi (Principle of Least Privilege):** Günlük işlerinizi yönetici (admin) hesabıyla yapmayın. Standart bir kullanıcı hesabı, fidye yazılımının tüm sisteme yayılmasını ve kritik sistem dosyalarını şifrelemesini zorlaştırabilir.
+
+## 🕵️‍♂️ Casus Yazılımlar (Spyware) ve Keylogger'lar
+### 🧐 Nedir ve Nasıl Çalışır?
+Casus yazılımlar, adından da anlaşılacağı gibi, kullanıcının haberi olmadan sisteme sızar ve gizlice bilgi toplar. Topladığı bilgiler arasında internet gezinti alışkanlıkları, e-posta adresleri, kullanıcı adları ve parolalar olabilir. Keylogger'lar ise casus yazılımların özel bir türüdür ve klavyede bastığınız her tuşu kaydederek kredi kartı bilgileri, şifreler gibi en hassas verileri çalmayı hedefler. Adware ise genellikle casus yazılımlarla birlikte gelir ve amacı sürekli olarak istenmeyen reklamlar göstermektir.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+CoolWebSearch (CWS): Bir tarayıcı eklentisi veya küçük bir program gibi görünen bu casus yazılım, kullanıcının tarayıcı anasayfasını değiştirir, arama sonuçlarını kendi sitelerine yönlendirir ve sürekli olarak rahatsız edici pop-up'lar çıkarırdı. Amacı, reklam geliri elde etmek ve kullanıcı verilerini toplamaktı. Bu tür yazılımlar genellikle "Potansiyel Olarak İstenmeyen Programlar" (PUPs) olarak sınıflandırılır.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **Anti-Spyware Araçları:** Birçok modern antivirüs, casus yazılımları da tespit edebilen modüllere sahiptir. Malwarebytes gibi özel araçlar bu konuda oldukça etkilidir.
+
+- **Ağ Trafiği:** Bilgisayarınızın siz bir şey yapmazken bile sürekli olarak şüpheli bir reklam sunucusuna veya veri toplama sunucusuna veri gönderdiğini görmek bir belirtidir.
+
+- **Belirtiler:** Tarayıcı anasayfanızın veya arama motorunuzun kendi kendine değişmesi ve bunu düzeltememeniz, sistem performansında ani düşüşler, internette gezinirken her yerde karşınıza çıkan beklenmedik reklam pencereleri.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **Dikkatli Kurulum:** Ücretsiz yazılımlar kurarken "Hızlı Kurulum" yerine "Özel Kurulum" seçeneğini tercih edin. Bu sırada size "ekstra" olarak sunulan tarayıcı araç çubuklarını veya istenmeyen programları kurmayı reddeden kutucukların işaretini kaldırın.
+
+- **Pop-up Engelleyiciler:** Tarayıcınızın pop-up engelleyicisini aktif tutun ve güvenilir bir reklam engelleyici (ad-blocker) eklentisi kullanın.
+
+- **Güvenlik Yazılımı:** Düzenli olarak güncel bir güvenlik yazılımıyla tarama yapın ve şüpheli tarayıcı eklentilerini kaldırın.
+
+## 🤖 Botnet'ler
+### 🧐 Nedir ve Nasıl Çalışır?
+Botnet, "robot" ve "network" kelimelerinin birleşimidir. Bir saldırgan (botmaster), genellikle solucanlar veya Truva atları aracılığıyla binlerce, hatta milyonlarca bilgisayara sızar. Bu ele geçirilmiş bilgisayarlara "zombi" denir ve hepsi, saldırganın merkezi bir Komuta ve Kontrol (C&C veya C2) sunucusundan gönderdiği komutları bekler. Saldırgan, bu devasa zombi ordusunu DDoS saldırıları, spam e-posta kampanyaları, kripto para madenciliği veya tıklama sahtekarlığı (click fraud) gibi büyük çaplı ve yasa dışı faaliyetler için kullanır.
+
+### 🎬 Gerçek Hayattan Bir Örnek
+Mirai Botneti (2016): Güvenliği zayıf olan IoT (Nesnerin İnterneti) cihazlarını (güvenlik kameraları, modemler, DVR'lar vb.) hedef aldı. Fabrika ayarı şifrelerini ("admin/admin" gibi) deneyerek yüz binlerce cihaza sızdı ve devasa bir botnet oluşturdu. Bu botnet, tarihin en büyük DDoS (Distributed Denial of Service) saldırılarından bazılarını gerçekleştirmek için kullanıldı ve Twitter, Netflix, Reddit gibi büyük siteleri saatlerce erişilmez hale getirdi.
+
+### 🕵️‍♂️ Nasıl Tespit Edilir?
+- **Ağ Anormallikleri:** Cihazınızın, bilginiz dışında şüpheli bir C&C sunucusuna bağlanmaya çalışması (genellikle IRC portları 6667, özel portlar veya bazen gizlenmek için DNS portu 53 üzerinden) en önemli belirtidir. Güvenlik duvarı logları ve NetFlow verileri bu tespitte yardımcı olabilir.
+
+- **DDoS Trafiği:** Bilgisayarınızın veya ağınızın, belirli bir hedefe doğru anlamsız ve yoğun bir ağ trafiği (UDP/ICMP flood) göndermesi, bir DDoS saldırısının parçası olduğunuzu gösterir.
+
+- **Anti-Malware Taramaları:** Botnet'e dahil olmanızı sağlayan zararlı yazılımı (bot istemcisini) tespit edebilir.
+
+### 🛡️ Nasıl Durdurulur ve Korunulur?
+- **Güçlü ve Benzersiz Şifreler:** Özellikle modem, kamera gibi IoT cihazlarınızın varsayılan şifrelerini mutlaka değiştirin. Her cihaz için farklı ve karmaşık bir şifre kullanın.
+
+- **Yazılım ve Firmware Güncellemeleri:** Cihazlarınızın firmware (donanım yazılımı) güncellemelerini düzenli olarak yapın. Üreticiler genellikle bilinen güvenlik açıklarını bu güncellemelerle kapatır.
+
+- **Genel Korunma Yöntemleri:** Bir botnet'e dahil olmanızı sağlayan şey genellikle bir solucan veya Truva atıdır. Dolayısıyla onlardan korunma yöntemleri botnet'lerden de korunmanızı sağlar.
+
+---
+
+Bugünkü rehberde, en çok karşılaşabileceğimiz ve loglarda tespit etmemiz gereken zararlı yazılım türlerini özetledim. İleride daha az bilinen veya özel malware türleriyle ilgili kısa bilgiler de ekleyebilirim. Umarım bu rehber, hem log analizlerinde hem de genel siber güvenlik çalışmalarında size yol gösterici olur. Herkese bol çalışmalar, sağlıklı günler dilerim. Esenlikle kalın! 🌟
 
 ---
