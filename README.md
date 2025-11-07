@@ -1,4 +1,4 @@
-# Muzaffer'in Mavi Takım (Blue Team) Yolculuğu 🛡️
+# Mavi Takım (Blue Team) Yolculuğu 🛡️
 
 ## Merhaba! 👋
 
